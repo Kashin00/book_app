@@ -42,6 +42,8 @@
 		BABBDAA62AE184B400433EDD /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA52AE184B400433EDD /* RemoteConfigManager.swift */; };
 		BABBDAA82AE1853F00433EDD /* LibrarySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */; };
 		BABBDAAA2AE186AF00433EDD /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */; };
+		BABBDAAC2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */; };
+		BABBDAAF2AE197B300433EDD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAAE2AE197B300433EDD /* ImageLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +85,8 @@
 		BABBDAA52AE184B400433EDD /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySectionHeaderView.swift; sourceTree = "<group>"; };
 		BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		BABBDAAE2AE197B300433EDD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -249,6 +253,7 @@
 		BA71B5292AE13C0B00554EC4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */,
 				BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */,
 			);
 			path = Fonts;
@@ -275,6 +280,7 @@
 		BA71B53A2AE177CC00554EC4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				BABBDAAD2AE197A000433EDD /* ImageLoader */,
 				BA71B53B2AE177D900554EC4 /* FirebaseRemoteConfigManager */,
 			);
 			path = Managers;
@@ -316,6 +322,14 @@
 				BABBDA9D2AE183EF00433EDD /* RemoteConfigDataMapper.swift */,
 			);
 			path = DataHandlers;
+			sourceTree = "<group>";
+		};
+		BABBDAAD2AE197A000433EDD /* ImageLoader */ = {
+			isa = PBXGroup;
+			children = (
+				BABBDAAE2AE197B300433EDD /* ImageLoader.swift */,
+			);
+			path = ImageLoader;
 			sourceTree = "<group>";
 		};
 		C68BDFAB71627202D63788A1 /* Pods */ = {
@@ -391,6 +405,7 @@
 				BA71B4F32AE1024C00554EC4 /* LaunchScreen.storyboard in Resources */,
 				BA71B4FB2AE102E900554EC4 /* GoogleService-Info.plist in Resources */,
 				BA71B4F02AE1024C00554EC4 /* Assets.xcassets in Resources */,
+				BABBDAAC2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf in Resources */,
 				BA71B52B2AE13D3D00554EC4 /* NunitoSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +486,7 @@
 				BABBDA972AE1837800433EDD /* BookRemoteConfiguration.swift in Sources */,
 				BABBDA932AE1836800433EDD /* Library.swift in Sources */,
 				BA71B5082AE11F6100554EC4 /* SplashScreenViewModel.swift in Sources */,
+				BABBDAAF2AE197B300433EDD /* ImageLoader.swift in Sources */,
 				BABBDAA02AE1841A00433EDD /* InternalError.swift in Sources */,
 				BABBDA952AE1837200433EDD /* BookGenre.swift in Sources */,
 				BA71B5172AE1272C00554EC4 /* SplashScreenCoordinator.swift in Sources */,

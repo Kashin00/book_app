@@ -12,6 +12,7 @@ class LibraryViewModel: LibraryViewModelInput {
   private weak var coordinator: LibraryScreenCoordinatorInput?
   
   private var firebaseRemoteConfigManager: RemoteConfigManager?
+  private var imageLoader: ImageLoaderInput?
   
   var library: Library?
   
@@ -19,9 +20,11 @@ class LibraryViewModel: LibraryViewModelInput {
   var bindReloadData: (()->Void) = {}
   
   init(coordinator: LibraryScreenCoordinatorInput,
-       firebaseRemoteConfigManager: RemoteConfigManager = FirebaseRemoteConfigManager()) {
+       firebaseRemoteConfigManager: RemoteConfigManager = FirebaseRemoteConfigManager(),
+       imageLoader: ImageLoaderInput = ImageLoader()) {
     self.coordinator = coordinator
     self.firebaseRemoteConfigManager = firebaseRemoteConfigManager
+    self.imageLoader = imageLoader
   }
   
   func fetchData() {
@@ -34,5 +37,9 @@ class LibraryViewModel: LibraryViewModelInput {
         break
       }
     })
+  }
+  
+  func loadImage(for url: String, competion: @escaping (Data) -> ()) {
+    imageLoader?.loadImage(with: url, competion)
   }
 }

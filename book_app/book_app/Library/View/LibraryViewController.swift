@@ -63,6 +63,8 @@ private extension LibraryViewController {
     dataSource = UICollectionViewDiffableDataSource<BookGenre, Book>(collectionView: libraryCollectionView, cellProvider: { collectionView, indexPath, book in
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BookCollectionViewCell.self), for: indexPath) as? BookCollectionViewCell
       else { return UICollectionViewCell() }
+    
+      cell.configureCell(with: book, and: self)
       
       return cell
     })
@@ -106,7 +108,7 @@ private extension LibraryViewController {
     
     let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
     
-    let height: CGFloat = 150
+    let height: CGFloat = 190
     let width: CGFloat = 120
     let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .estimated(width), heightDimension: .estimated(height)), subitems: [item])
     group.interItemSpacing = .fixed(16)
@@ -131,5 +133,11 @@ private extension LibraryViewController {
     
     layout.configuration = config
     return layout
+  }
+}
+
+extension LibraryViewController: BookCollectionViewCellDelegate {
+  func getImage(for url: String, competion: @escaping (Data) -> ()) {
+    viewModel?.loadImage(for: url, competion: competion)
   }
 }

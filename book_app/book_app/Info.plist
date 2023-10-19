@@ -5,6 +5,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>NunitoSans-Bold.ttf</string>
+		<string>NunitoSans-SemiBoldItalic.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
