@@ -11,4 +11,7 @@ protocol LibraryViewModelInput {
   var library: Library? { get }
   
   func fetchData()
+  
+  //MARK: Bindings
+  var bindReloadData: (()->Void) { get set }
 }

@@ -15,6 +15,9 @@ class LibraryViewModel: LibraryViewModelInput {
   
   var library: Library?
   
+  //MARK: Binding
+  var bindReloadData: (()->Void) = {}
+  
   init(coordinator: LibraryScreenCoordinatorInput,
        firebaseRemoteConfigManager: RemoteConfigManager = FirebaseRemoteConfigManager()) {
     self.coordinator = coordinator
@@ -26,6 +29,7 @@ class LibraryViewModel: LibraryViewModelInput {
       switch result {
       case .success(let data):
         self?.library = data
+        self?.bindReloadData()
       case .failure(let error):
         break
       }
