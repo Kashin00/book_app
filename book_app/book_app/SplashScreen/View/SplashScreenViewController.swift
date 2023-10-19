@@ -14,6 +14,12 @@ class SplashScreenViewController: UIViewController {
   
   private lazy var backgroundImageView = UIImageView()
   
+  private lazy var loadingView: SplashScreenLoadingView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.backgroundColor = .clear
+    return $0
+  }(SplashScreenLoadingView())
+  
   init(viewModel: SplashScreenViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
@@ -27,19 +33,31 @@ class SplashScreenViewController: UIViewController {
     super.viewDidLoad()
     setupUI()
   }
+}
+
+//MARK: UI Setup
+private extension SplashScreenViewController {
   
-  //MARK: UI Setup
-  private func setupUI() {
+  func setupUI() {
     view.backgroundColor = .clear
     setupBackgroundImageView()
+    setupLoadingView()
   }
   
-  private func setupBackgroundImageView() {
+  func setupBackgroundImageView() {
     if let layerImage = UIImage(named: ImageStorage.SplashScreen.backgroundHeartsLayer),
        let backgroundImage = UIImage(named: ImageStorage.SplashScreen.background)?.mergeWith(topImage: layerImage) {
       backgroundImageView.image = backgroundImage
     }
     backgroundImageView.frame = view.bounds
     view.addSubview(backgroundImageView)
+  }
+  
+  func setupLoadingView() {
+    view.addSubview(loadingView)
+    NSLayoutConstraint.activate([
+      loadingView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      loadingView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+    ])
   }
 }
