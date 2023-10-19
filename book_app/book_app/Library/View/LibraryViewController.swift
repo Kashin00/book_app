@@ -117,7 +117,7 @@ private extension LibraryViewController {
     
     let globalHeader = NSCollectionLayoutBoundarySupplementaryItem(
       layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                         heightDimension: .absolute(400.0)),
+                                         heightDimension: .fractionalHeight(0.43)),
       elementKind: LibraryHeaderView.kind,
       alignment: .top)
     
