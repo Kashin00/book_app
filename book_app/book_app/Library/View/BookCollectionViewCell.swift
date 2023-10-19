@@ -33,8 +33,8 @@ class BookCollectionViewCell: UICollectionViewCell {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
-    setupTitleLable()
     setupImageView()
+    setupTitleLable()
   }
   
   required init?(coder: NSCoder) {
@@ -67,7 +67,7 @@ class BookCollectionViewCell: UICollectionViewCell {
       posterImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
       posterImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
       posterImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-      posterImageView.bottomAnchor.constraint(equalTo: titleLabel.topAnchor, constant: -4)
+      posterImageView.heightAnchor.constraint(equalToConstant: 150)
     ])
   }
   
@@ -75,9 +75,9 @@ class BookCollectionViewCell: UICollectionViewCell {
     contentView.addSubview(titleLabel)
     
     NSLayoutConstraint.activate([
+      titleLabel.topAnchor.constraint(equalTo: posterImageView.bottomAnchor, constant: 4),
       titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-      titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+      titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
     ])
   }
   
