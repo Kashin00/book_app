@@ -40,6 +40,7 @@
 		BABBDAA02AE1841A00433EDD /* InternalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDA9F2AE1841A00433EDD /* InternalError.swift */; };
 		BABBDAA32AE1845B00433EDD /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA22AE1845B00433EDD /* NetworkError.swift */; };
 		BABBDAA62AE184B400433EDD /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA52AE184B400433EDD /* RemoteConfigManager.swift */; };
+		BABBDAA82AE1853F00433EDD /* LibrarySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		BABBDA9F2AE1841A00433EDD /* InternalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalError.swift; sourceTree = "<group>"; };
 		BABBDAA22AE1845B00433EDD /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		BABBDAA52AE184B400433EDD /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
+		BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySectionHeaderView.swift; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				BA71B50A2AE11F8B00554EC4 /* LibraryViewController.swift */,
+				BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BABBDAA82AE1853F00433EDD /* LibrarySectionHeaderView.swift in Sources */,
 				BA71B5122AE11FEB00554EC4 /* Coordinator.swift in Sources */,
 				BABBDAA62AE184B400433EDD /* RemoteConfigManager.swift in Sources */,
 				BA71B50F2AE11FA700554EC4 /* LibraryViewModel.swift in Sources */,

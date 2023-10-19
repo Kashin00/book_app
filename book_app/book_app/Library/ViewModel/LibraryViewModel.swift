@@ -13,8 +13,7 @@ class LibraryViewModel: LibraryViewModelInput {
   
   private var firebaseRemoteConfigManager: RemoteConfigManager?
   
-  private var library: Library?
-  
+  var library: Library?
   
   init(coordinator: LibraryScreenCoordinatorInput,
        firebaseRemoteConfigManager: RemoteConfigManager = FirebaseRemoteConfigManager()) {

@@ -16,7 +16,6 @@ class LibraryViewController: UIViewController {
   init(viewModel: LibraryViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
-    
   }
   
   required init?(coder: NSCoder) {
@@ -26,11 +25,16 @@ class LibraryViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     view.backgroundColor = .black
+    viewModel?.fetchData()
+    setupLibraryCollectionView()
+  }
+  
+  func setupLibraryCollectionView() {
     view.addSubview(libraryCollectionView)
     libraryCollectionView.frame = view.bounds
     libraryCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     libraryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-    libraryCollectionView.register(TitleCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: TitleCollectionHeaderView.self))
+    libraryCollectionView.register(LibrarySectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: LibrarySectionHeaderView.self))
     libraryCollectionView.dataSource = self
     libraryCollectionView.delegate = self
   }
@@ -91,22 +95,11 @@ extension LibraryViewController: UICollectionViewDataSource {
   }
   
   func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: TitleCollectionHeaderView.self), for: indexPath) as? TitleCollectionHeaderView else { return UICollectionReusableView() }
+    guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: LibrarySectionHeaderView.self), for: indexPath) as? LibrarySectionHeaderView else { return UICollectionReusableView() }
     return header
   }
 }
 
 extension LibraryViewController: UICollectionViewDelegate {
   
-}
-
-class TitleCollectionHeaderView: UICollectionReusableView {
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    backgroundColor = .green
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
 }
