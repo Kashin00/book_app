@@ -73,8 +73,10 @@ private extension LibraryViewController {
         ofKind: kind,
         withReuseIdentifier: String(describing: LibrarySectionHeaderView.self),
         for: indexPath) as? LibrarySectionHeaderView else { return UICollectionReusableView() }
-      
-      
+      if let title = self?.viewModel?.library?.bookGenres[indexPath.section].genre {
+        headerView.setupView(with: title)
+      }
+    
       return headerView
     }
   }
