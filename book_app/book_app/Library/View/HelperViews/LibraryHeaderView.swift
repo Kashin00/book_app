@@ -19,10 +19,13 @@ class LibraryHeaderView: UICollectionReusableView {
     return $0
   }(UILabel())
   
+  private lazy var pageViewController = BannersPageViewController()
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     backgroundColor = .black
     setupTitleLabel()
+    setupPageViewController()
   }
   
   required init?(coder: NSCoder) {
@@ -35,6 +38,18 @@ class LibraryHeaderView: UICollectionReusableView {
     NSLayoutConstraint.activate([
       titleLabel.topAnchor.constraint(equalTo: topAnchor),
       titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16)
+    ])
+  }
+  
+  private func setupPageViewController() {
+    addSubview(pageViewController.view)
+    
+    pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    NSLayoutConstraint.activate([
+      pageViewController.view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 28),
+      pageViewController.view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+      pageViewController.view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+      pageViewController.view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.25)
     ])
   }
 }

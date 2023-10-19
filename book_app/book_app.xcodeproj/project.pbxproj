@@ -45,6 +45,7 @@
 		BABBDAAC2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */; };
 		BABBDAAF2AE197B300433EDD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAAE2AE197B300433EDD /* ImageLoader.swift */; };
 		BAC2FBCF2AE1B16800D5E5A0 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */; };
+		BAC2FBD12AE1C7A400D5E5A0 /* BannersPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		BABBDAAE2AE197B300433EDD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHeaderView.swift; sourceTree = "<group>"; };
+		BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersPageViewController.swift; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,9 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				BA71B50A2AE11F8B00554EC4 /* LibraryViewController.swift */,
-				BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */,
-				BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */,
-				BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */,
+				BAC2FBD22AE1C7BD00D5E5A0 /* HelperViews */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -335,6 +335,17 @@
 			path = ImageLoader;
 			sourceTree = "<group>";
 		};
+		BAC2FBD22AE1C7BD00D5E5A0 /* HelperViews */ = {
+			isa = PBXGroup;
+			children = (
+				BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */,
+				BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */,
+				BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */,
+				BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */,
+			);
+			path = HelperViews;
+			sourceTree = "<group>";
+		};
 		C68BDFAB71627202D63788A1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -462,6 +473,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC2FBD12AE1C7A400D5E5A0 /* BannersPageViewController.swift in Sources */,
 				BABBDAA82AE1853F00433EDD /* LibrarySectionHeaderView.swift in Sources */,
 				BA71B5122AE11FEB00554EC4 /* Coordinator.swift in Sources */,
 				BABBDAA62AE184B400433EDD /* RemoteConfigManager.swift in Sources */,
