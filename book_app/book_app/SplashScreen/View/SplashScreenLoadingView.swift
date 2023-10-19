@@ -32,7 +32,7 @@ final class SplashScreenLoadingView: UIView {
     $0.trackTintColor = .white.withAlphaComponent(0.2)
     $0.progressTintColor = .white
     $0.semanticContentAttribute = .forceLeftToRight
-    $0.setProgress(0.3, animated: false)
+    $0.setProgress(0.0, animated: false)
     return $0
   }(UIProgressView())
   
@@ -41,6 +41,18 @@ final class SplashScreenLoadingView: UIView {
     setupTitleLabel()
     setupSubtitleLabel()
     setupProgressView()
+  }
+  
+  func animate(_ completion: @escaping () -> Void) {
+
+    progressView.progress = 1
+    UIView.animate(withDuration: 2) { [weak self] in
+      self?.progressView.layoutIfNeeded()
+    } completion: { isFinished in
+      if isFinished {
+        completion()
+      }
+    }
   }
   
   required init?(coder: NSCoder) {
