@@ -44,6 +44,7 @@
 		BABBDAAA2AE186AF00433EDD /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */; };
 		BABBDAAC2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */; };
 		BABBDAAF2AE197B300433EDD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAAE2AE197B300433EDD /* ImageLoader.swift */; };
+		BAC2FBCF2AE1B16800D5E5A0 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		BABBDAAE2AE197B300433EDD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHeaderView.swift; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -189,6 +191,7 @@
 				BA71B50A2AE11F8B00554EC4 /* LibraryViewController.swift */,
 				BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */,
 				BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */,
+				BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -470,6 +473,7 @@
 				BA71B52D2AE13FCE00554EC4 /* SplashScreenLoadingView.swift in Sources */,
 				BABBDAA32AE1845B00433EDD /* NetworkError.swift in Sources */,
 				BA71B51E2AE12E1400554EC4 /* UIImage+Extensions.swift in Sources */,
+				BAC2FBCF2AE1B16800D5E5A0 /* LibraryHeaderView.swift in Sources */,
 				BA71B53D2AE177F800554EC4 /* FirebaseRemoteConfigManager.swift in Sources */,
 				BABBDA992AE1837F00433EDD /* Book.swift in Sources */,
 				BABBDA9B2AE1838600433EDD /* TopBannerSlide.swift in Sources */,

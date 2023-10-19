@@ -37,6 +37,7 @@ class LibraryViewController: UIViewController {
     libraryCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     libraryCollectionView.register(BookCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: BookCollectionViewCell.self))
     libraryCollectionView.register(LibrarySectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: LibrarySectionHeaderView.self))
+    libraryCollectionView.register(LibraryHeaderView.self, forSupplementaryViewOfKind: LibraryHeaderView.kind, withReuseIdentifier: String(describing: LibraryHeaderView.self))
     libraryCollectionView.delegate = self
     createDataSource()
   }
@@ -69,17 +70,28 @@ private extension LibraryViewController {
       return cell
     })
     
-    
     dataSource?.supplementaryViewProvider = { [weak self] (view, kind, indexPath) in
-      guard let headerView = self?.libraryCollectionView.dequeueReusableSupplementaryView(
-        ofKind: kind,
-        withReuseIdentifier: String(describing: LibrarySectionHeaderView.self),
-        for: indexPath) as? LibrarySectionHeaderView else { return UICollectionReusableView() }
-      if let title = self?.viewModel?.library?.bookGenres[indexPath.section].genre {
-        headerView.setupView(with: title)
+      switch kind {
+      case LibraryHeaderView.kind:
+        guard let headerView = self?.libraryCollectionView.dequeueReusableSupplementaryView(
+          ofKind: kind,
+          withReuseIdentifier: String(describing: LibraryHeaderView.self),
+          for: indexPath) as? LibraryHeaderView else { return UICollectionReusableView() }
+
+      
+        return headerView
+      default:
+        guard let headerView = self?.libraryCollectionView.dequeueReusableSupplementaryView(
+          ofKind: kind,
+          withReuseIdentifier: String(describing: LibrarySectionHeaderView.self),
+          for: indexPath) as? LibrarySectionHeaderView else { return UICollectionReusableView() }
+        if let title = self?.viewModel?.library?.bookGenres[indexPath.section].genre {
+          headerView.setupView(with: title)
+        }
+      
+        return headerView
       }
-    
-      return headerView
+
     }
   }
   
@@ -102,6 +114,14 @@ private extension LibraryViewController {
     
     let config = UICollectionViewCompositionalLayoutConfiguration()
     config.scrollDirection = .vertical
+    
+    let globalHeader = NSCollectionLayoutBoundarySupplementaryItem(
+      layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                         heightDimension: .absolute(400.0)),
+      elementKind: LibraryHeaderView.kind,
+      alignment: .top)
+    
+    config.boundarySupplementaryItems = [globalHeader]
     if #available(iOS 14.0, *) {
       config.contentInsetsReference = .none
     }
