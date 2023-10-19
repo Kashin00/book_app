@@ -14,14 +14,6 @@ class LibraryViewController: UIViewController {
   private lazy var libraryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
   private var dataSource: UICollectionViewDiffableDataSource<BookGenre, Book>?
   
-  private lazy var scrollView: UIScrollView = {
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.backgroundColor = .clear
-    return $0
-  }(UIScrollView())
-  
-  
-  
   init(viewModel: LibraryViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
@@ -36,26 +28,12 @@ class LibraryViewController: UIViewController {
     super.viewDidLoad()
     view.backgroundColor = .black
     viewModel?.fetchData()
-    setupScrollView()
     setupLibraryCollectionView()
   }
   
-  func setupScrollView() {
-    view.addSubview(scrollView)
-    scrollView.contentInsetAdjustmentBehavior = .never
-    
-    NSLayoutConstraint.activate([
-      scrollView.topAnchor.constraint(equalTo: view.topAnchor),
-      scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
-    ])
-  }
-  
   private func setupLibraryCollectionView() {
-    scrollView.addSubview(libraryCollectionView)
-    libraryCollectionView.frame = scrollView.bounds
-    libraryCollectionView.bounces = true
+    view.addSubview(libraryCollectionView)
+    libraryCollectionView.frame = view.bounds
     libraryCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     libraryCollectionView.register(BookCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: BookCollectionViewCell.self))
     libraryCollectionView.register(LibrarySectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: LibrarySectionHeaderView.self))
