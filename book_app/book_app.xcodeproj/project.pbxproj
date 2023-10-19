@@ -20,6 +20,8 @@
 		BA71B5122AE11FEB00554EC4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5112AE11FEB00554EC4 /* Coordinator.swift */; };
 		BA71B5142AE11FF400554EC4 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5132AE11FF400554EC4 /* MainCoordinator.swift */; };
 		BA71B5172AE1272C00554EC4 /* SplashScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */; };
+		BA71B51B2AE12D5400554EC4 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B51A2AE12D5400554EC4 /* ImageStorage.swift */; };
+		BA71B51E2AE12E1400554EC4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		BA71B5112AE11FEB00554EC4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		BA71B5132AE11FF400554EC4 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCoordinator.swift; sourceTree = "<group>"; };
+		BA71B51A2AE12D5400554EC4 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
+		BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,13 +87,13 @@
 		BA71B4E52AE1024B00554EC4 /* book_app */ = {
 			isa = PBXGroup;
 			children = (
+				BA71B51C2AE12DFD00554EC4 /* Helpers */,
 				BA71B4E62AE1024B00554EC4 /* AppDelegate.swift */,
 				BA71B4E82AE1024B00554EC4 /* SceneDelegate.swift */,
 				BA71B5152AE11FFA00554EC4 /* MainCoordinator */,
 				BA71B50C2AE11F9300554EC4 /* Library */,
 				BA71B5052AE11F3900554EC4 /* SplashScreen */,
-				BA71B4EF2AE1024C00554EC4 /* Assets.xcassets */,
-				BA71B4F12AE1024C00554EC4 /* LaunchScreen.storyboard */,
+				BA71B5192AE12D3B00554EC4 /* Resources */,
 				BA71B4F42AE1024C00554EC4 /* Info.plist */,
 				BA71B4FA2AE102E800554EC4 /* GoogleService-Info.plist */,
 			);
@@ -162,6 +166,32 @@
 				BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		BA71B5192AE12D3B00554EC4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B4EF2AE1024C00554EC4 /* Assets.xcassets */,
+				BA71B4F12AE1024C00554EC4 /* LaunchScreen.storyboard */,
+				BA71B51A2AE12D5400554EC4 /* ImageStorage.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BA71B51C2AE12DFD00554EC4 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B51F2AE12E1900554EC4 /* Extensions */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BA71B51F2AE12E1900554EC4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C68BDFAB71627202D63788A1 /* Pods */ = {
@@ -292,9 +322,11 @@
 				BA71B50F2AE11FA700554EC4 /* LibraryViewModel.swift in Sources */,
 				BA71B4E72AE1024B00554EC4 /* AppDelegate.swift in Sources */,
 				BA71B4FD2AE1095500554EC4 /* SplashScreenViewController.swift in Sources */,
+				BA71B51E2AE12E1400554EC4 /* UIImage+Extensions.swift in Sources */,
 				BA71B4E92AE1024B00554EC4 /* SceneDelegate.swift in Sources */,
 				BA71B50B2AE11F8B00554EC4 /* LibraryViewController.swift in Sources */,
 				BA71B5142AE11FF400554EC4 /* MainCoordinator.swift in Sources */,
+				BA71B51B2AE12D5400554EC4 /* ImageStorage.swift in Sources */,
 				BA71B5082AE11F6100554EC4 /* SplashScreenViewModel.swift in Sources */,
 				BA71B5172AE1272C00554EC4 /* SplashScreenCoordinator.swift in Sources */,
 			);

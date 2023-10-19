@@ -12,6 +12,8 @@ class SplashScreenViewController: UIViewController {
   
   private var viewModel: SplashScreenViewModelInput?
   
+  private lazy var backgroundImageView = UIImageView()
+  
   init(viewModel: SplashScreenViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
@@ -23,7 +25,21 @@ class SplashScreenViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .red
-    print("slpash")
+    setupUI()
+  }
+  
+  //MARK: UI Setup
+  private func setupUI() {
+    view.backgroundColor = .clear
+    setupBackgroundImageView()
+  }
+  
+  private func setupBackgroundImageView() {
+    if let layerImage = UIImage(named: ImageStorage.SplashScreen.backgroundHeartsLayer),
+       let backgroundImage = UIImage(named: ImageStorage.SplashScreen.background)?.mergeWith(topImage: layerImage) {
+      backgroundImageView.image = backgroundImage
+    }
+    backgroundImageView.frame = view.bounds
+    view.addSubview(backgroundImageView)
   }
 }
