@@ -11,9 +11,12 @@ class LibraryViewController: UIViewController {
   
   private var viewModel: LibraryViewModelInput?
   
+  private lazy var libraryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayput())
+  
   init(viewModel: LibraryViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
+    
   }
   
   required init?(coder: NSCoder) {
@@ -22,6 +25,88 @@ class LibraryViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    view.backgroundColor = .red
+    view.backgroundColor = .black
+    view.addSubview(libraryCollectionView)
+    libraryCollectionView.frame = view.bounds
+    libraryCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    libraryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    libraryCollectionView.register(TitleCollectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: TitleCollectionHeaderView.self))
+    libraryCollectionView.dataSource = self
+    libraryCollectionView.delegate = self
+  }
+  
+  
+  private func createLayput() -> UICollectionViewLayout {
+
+    let config = UICollectionViewCompositionalLayoutConfiguration()
+    config.scrollDirection = .vertical
+    if #available(iOS 14.0, *) {
+      config.contentInsetsReference = .none
+    }
+    
+    let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0)))
+    
+    let height: CGFloat = 150
+    let width: CGFloat = 120
+    let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .estimated(width), heightDimension: .estimated(height)), subitems: [item])
+    group.interItemSpacing = .fixed(16)
+    
+    let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                            heightDimension: .absolute(40.0))
+    
+    let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+      layoutSize: headerSize,
+      elementKind: UICollectionView.elementKindSectionHeader,
+      alignment: .top)
+    
+    let sectionMovies = NSCollectionLayoutSection(group: group)
+    sectionMovies.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 16, bottom: 24, trailing: 16)
+    sectionMovies.interGroupSpacing = 8
+    sectionMovies.orthogonalScrollingBehavior = .continuous
+    sectionMovies.boundarySupplementaryItems = [sectionHeader]
+
+    let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
+      return sectionMovies
+    }
+    
+    layout.configuration = config
+    return layout
+  }
+}
+
+
+extension LibraryViewController: UICollectionViewDataSource {
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 6
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 200
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+    cell.backgroundColor = .red
+    return cell
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: TitleCollectionHeaderView.self), for: indexPath) as? TitleCollectionHeaderView else { return UICollectionReusableView() }
+    return header
+  }
+}
+
+extension LibraryViewController: UICollectionViewDelegate {
+  
+}
+
+class TitleCollectionHeaderView: UICollectionReusableView {
+  override init(frame: CGRect) {
+    super.init(frame: frame)
+    backgroundColor = .green
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
   }
 }
