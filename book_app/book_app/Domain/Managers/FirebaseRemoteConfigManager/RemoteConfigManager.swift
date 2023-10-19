@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol RemoteConfigManager {
+  func fetchLibrary(_ completion: @escaping (Result<Library, Error>) -> ())
+}
