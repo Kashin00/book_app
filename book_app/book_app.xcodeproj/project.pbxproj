@@ -10,11 +10,16 @@
 		A2667E98849D68F54F414791 /* Pods_book_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */; };
 		BA71B4E72AE1024B00554EC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B4E62AE1024B00554EC4 /* AppDelegate.swift */; };
 		BA71B4E92AE1024B00554EC4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B4E82AE1024B00554EC4 /* SceneDelegate.swift */; };
-		BA71B4EB2AE1024B00554EC4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B4EA2AE1024B00554EC4 /* ViewController.swift */; };
 		BA71B4F02AE1024C00554EC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA71B4EF2AE1024C00554EC4 /* Assets.xcassets */; };
 		BA71B4F32AE1024C00554EC4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA71B4F12AE1024C00554EC4 /* LaunchScreen.storyboard */; };
 		BA71B4FB2AE102E900554EC4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA71B4FA2AE102E800554EC4 /* GoogleService-Info.plist */; };
 		BA71B4FD2AE1095500554EC4 /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B4FC2AE1095500554EC4 /* SplashScreenViewController.swift */; };
+		BA71B5082AE11F6100554EC4 /* SplashScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5072AE11F6100554EC4 /* SplashScreenViewModel.swift */; };
+		BA71B50B2AE11F8B00554EC4 /* LibraryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B50A2AE11F8B00554EC4 /* LibraryViewController.swift */; };
+		BA71B50F2AE11FA700554EC4 /* LibraryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B50E2AE11FA700554EC4 /* LibraryViewModel.swift */; };
+		BA71B5122AE11FEB00554EC4 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5112AE11FEB00554EC4 /* Coordinator.swift */; };
+		BA71B5142AE11FF400554EC4 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5132AE11FF400554EC4 /* MainCoordinator.swift */; };
+		BA71B5172AE1272C00554EC4 /* SplashScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,12 +28,17 @@
 		BA71B4E32AE1024B00554EC4 /* book_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = book_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA71B4E62AE1024B00554EC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA71B4E82AE1024B00554EC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BA71B4EA2AE1024B00554EC4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BA71B4EF2AE1024C00554EC4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA71B4F22AE1024C00554EC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BA71B4F42AE1024C00554EC4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA71B4FA2AE102E800554EC4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA71B4FC2AE1095500554EC4 /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
+		BA71B5072AE11F6100554EC4 /* SplashScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModel.swift; sourceTree = "<group>"; };
+		BA71B50A2AE11F8B00554EC4 /* LibraryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewController.swift; sourceTree = "<group>"; };
+		BA71B50E2AE11FA700554EC4 /* LibraryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModel.swift; sourceTree = "<group>"; };
+		BA71B5112AE11FEB00554EC4 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BA71B5132AE11FF400554EC4 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCoordinator.swift; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -75,14 +85,83 @@
 			children = (
 				BA71B4E62AE1024B00554EC4 /* AppDelegate.swift */,
 				BA71B4E82AE1024B00554EC4 /* SceneDelegate.swift */,
-				BA71B4EA2AE1024B00554EC4 /* ViewController.swift */,
-				BA71B4FC2AE1095500554EC4 /* SplashScreenViewController.swift */,
+				BA71B5152AE11FFA00554EC4 /* MainCoordinator */,
+				BA71B50C2AE11F9300554EC4 /* Library */,
+				BA71B5052AE11F3900554EC4 /* SplashScreen */,
 				BA71B4EF2AE1024C00554EC4 /* Assets.xcassets */,
 				BA71B4F12AE1024C00554EC4 /* LaunchScreen.storyboard */,
 				BA71B4F42AE1024C00554EC4 /* Info.plist */,
 				BA71B4FA2AE102E800554EC4 /* GoogleService-Info.plist */,
 			);
 			path = book_app;
+			sourceTree = "<group>";
+		};
+		BA71B5052AE11F3900554EC4 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B5062AE11F4D00554EC4 /* View */,
+				BA71B5092AE11F6600554EC4 /* ViewModel */,
+				BA71B5182AE1273300554EC4 /* Coordinator */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
+		BA71B5062AE11F4D00554EC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B4FC2AE1095500554EC4 /* SplashScreenViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA71B5092AE11F6600554EC4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B5072AE11F6100554EC4 /* SplashScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA71B50C2AE11F9300554EC4 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B50D2AE11F9B00554EC4 /* View */,
+				BA71B5102AE11FAA00554EC4 /* ViewModel */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		BA71B50D2AE11F9B00554EC4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B50A2AE11F8B00554EC4 /* LibraryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BA71B5102AE11FAA00554EC4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B50E2AE11FA700554EC4 /* LibraryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BA71B5152AE11FFA00554EC4 /* MainCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B5112AE11FEB00554EC4 /* Coordinator.swift */,
+				BA71B5132AE11FF400554EC4 /* MainCoordinator.swift */,
+			);
+			path = MainCoordinator;
+			sourceTree = "<group>";
+		};
+		BA71B5182AE1273300554EC4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		C68BDFAB71627202D63788A1 /* Pods */ = {
@@ -209,10 +288,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA71B4EB2AE1024B00554EC4 /* ViewController.swift in Sources */,
+				BA71B5122AE11FEB00554EC4 /* Coordinator.swift in Sources */,
+				BA71B50F2AE11FA700554EC4 /* LibraryViewModel.swift in Sources */,
 				BA71B4E72AE1024B00554EC4 /* AppDelegate.swift in Sources */,
 				BA71B4FD2AE1095500554EC4 /* SplashScreenViewController.swift in Sources */,
 				BA71B4E92AE1024B00554EC4 /* SceneDelegate.swift in Sources */,
+				BA71B50B2AE11F8B00554EC4 /* LibraryViewController.swift in Sources */,
+				BA71B5142AE11FF400554EC4 /* MainCoordinator.swift in Sources */,
+				BA71B5082AE11F6100554EC4 /* SplashScreenViewModel.swift in Sources */,
+				BA71B5172AE1272C00554EC4 /* SplashScreenCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

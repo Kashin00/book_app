@@ -10,6 +10,8 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   var window: UIWindow?
+  
+  var mainCoordinator: MainCoordinator?
 
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -17,8 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     guard let scene = (scene as? UIWindowScene) else { return }
     window = UIWindow(windowScene: scene)
     window?.overrideUserInterfaceStyle = .dark
+    
+    mainCoordinator = MainCoordinator()
+    mainCoordinator?.start()
+    
+    window?.rootViewController = mainCoordinator?.navigationController
     window?.makeKeyAndVisible()
-    window?.rootViewController = SplashScreenViewController()
   }
 
   func sceneDidDisconnect(_ scene: UIScene) {
