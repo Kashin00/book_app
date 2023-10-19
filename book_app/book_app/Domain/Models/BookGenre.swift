@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+struct BookGenre {
+  let genre: String
+  let books: [Book]
+}

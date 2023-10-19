@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+struct BookRemoteConfiguration: Codable {
+  let books: [Book]
+  let topBannerSlides: [TopBannerSlide]
+  let youWillLikeSection: [Int]
+  
+  enum CodingKeys: String, CodingKey {
+    case books
+    case topBannerSlides = "top_banner_slides"
+    case youWillLikeSection = "you_will_like_section"
+  }
+}

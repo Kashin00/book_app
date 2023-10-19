@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct TopBannerSlide: Codable {
+  let id, bookID: Int
+  let cover: String
+  
+  enum CodingKeys: String, CodingKey {
+    case id
+    case bookID = "book_id"
+    case cover
+  }
+}
