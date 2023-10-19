@@ -11,11 +11,13 @@ class LibraryViewController: UIViewController {
   
   private var viewModel: LibraryViewModelInput?
   
-  private lazy var libraryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayput())
+  private lazy var libraryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+  private var dataSource: UICollectionViewDiffableDataSource<BookGenre, Book>?
   
   init(viewModel: LibraryViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
+    bindViewModel()
   }
   
   required init?(coder: NSCoder) {
@@ -29,19 +31,71 @@ class LibraryViewController: UIViewController {
     setupLibraryCollectionView()
   }
   
-  func setupLibraryCollectionView() {
+  private func setupLibraryCollectionView() {
     view.addSubview(libraryCollectionView)
     libraryCollectionView.frame = view.bounds
     libraryCollectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    libraryCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    libraryCollectionView.register(BookCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: BookCollectionViewCell.self))
     libraryCollectionView.register(LibrarySectionHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: String(describing: LibrarySectionHeaderView.self))
-    libraryCollectionView.dataSource = self
     libraryCollectionView.delegate = self
+    createDataSource()
   }
   
+  private func bindViewModel() {
+    bindDataReloading()
+  }
   
-  private func createLayput() -> UICollectionViewLayout {
+  private func bindDataReloading() {
+    viewModel?.bindReloadData = { [weak self] in
+      self?.reloadData()
+    }
+  }
+}
 
+// MARK: UICollectionViewDelegate
+extension LibraryViewController: UICollectionViewDelegate {
+  
+}
+
+//MARK: UICollectionViewDataSource
+private extension LibraryViewController {
+  func createDataSource() {
+    dataSource = UICollectionViewDiffableDataSource<BookGenre, Book>(collectionView: libraryCollectionView, cellProvider: { collectionView, indexPath, book in
+      guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BookCollectionViewCell.self), for: indexPath) as? BookCollectionViewCell
+      else { return UICollectionViewCell() }
+      
+      return cell
+    })
+    
+    
+    dataSource?.supplementaryViewProvider = { [weak self] (view, kind, indexPath) in
+      guard let headerView = self?.libraryCollectionView.dequeueReusableSupplementaryView(
+        ofKind: kind,
+        withReuseIdentifier: String(describing: LibrarySectionHeaderView.self),
+        for: indexPath) as? LibrarySectionHeaderView else { return UICollectionReusableView() }
+      
+      
+      return headerView
+    }
+  }
+  
+  func reloadData() {
+    guard let sections = viewModel?.library?.bookGenres else { return }
+    var snapshot = NSDiffableDataSourceSnapshot<BookGenre, Book>()
+    snapshot.appendSections(sections)
+    
+    sections.forEach  {
+      snapshot.appendItems($0.books, toSection: $0)
+    }
+    
+    dataSource?.apply(snapshot)
+  }
+}
+
+// MARK: UICollectionViewLayout
+private extension LibraryViewController {
+  func createLayout() -> UICollectionViewLayout {
+    
     let config = UICollectionViewCompositionalLayoutConfiguration()
     config.scrollDirection = .vertical
     if #available(iOS 14.0, *) {
@@ -68,7 +122,7 @@ class LibraryViewController: UIViewController {
     sectionMovies.interGroupSpacing = 8
     sectionMovies.orthogonalScrollingBehavior = .continuous
     sectionMovies.boundarySupplementaryItems = [sectionHeader]
-
+    
     let layout = UICollectionViewCompositionalLayout { (sectionIndex, environment) -> NSCollectionLayoutSection? in
       return sectionMovies
     }
@@ -76,30 +130,4 @@ class LibraryViewController: UIViewController {
     layout.configuration = config
     return layout
   }
-}
-
-
-extension LibraryViewController: UICollectionViewDataSource {
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 6
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 200
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-    cell.backgroundColor = .red
-    return cell
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-    guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: String(describing: LibrarySectionHeaderView.self), for: indexPath) as? LibrarySectionHeaderView else { return UICollectionReusableView() }
-    return header
-  }
-}
-
-extension LibraryViewController: UICollectionViewDelegate {
-  
 }
