@@ -7,16 +7,12 @@
 
 import UIKit
 
-protocol SplashScreenCoordinatorInput: Coordinator {
-  
-}
-
 class SplashScreenCoordinator: SplashScreenCoordinatorInput {
   var childCoordinators: [Coordinator] = []
   
   var navigationController: UINavigationController
   
-  weak var mainCoordinator: MainCoordinator?
+  var finishFlowHandler: (() -> Void)?
   
   init(navigationController: UINavigationController) {
     self.navigationController = navigationController
@@ -26,5 +22,9 @@ class SplashScreenCoordinator: SplashScreenCoordinatorInput {
     let viewModel = SplashScreenViewModel(coordinator: self)
     let vc = SplashScreenViewController(viewModel: viewModel)
     navigationController.setViewControllers([vc], animated: false)
+  }
+  
+  func finishFlow() {
+    finishFlowHandler?()
   }
 }

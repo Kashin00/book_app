@@ -25,6 +25,11 @@
 		BA71B5212AE1350A00554EC4 /* ColorStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5202AE1350A00554EC4 /* ColorStorage.swift */; };
 		BA71B52B2AE13D3D00554EC4 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */; };
 		BA71B52D2AE13FCE00554EC4 /* SplashScreenLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B52C2AE13FCE00554EC4 /* SplashScreenLoadingView.swift */; };
+		BA71B5302AE1474C00554EC4 /* LibraryScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B52F2AE1474C00554EC4 /* LibraryScreenCoordinator.swift */; };
+		BA71B5322AE147A300554EC4 /* SplashScreenViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5312AE147A300554EC4 /* SplashScreenViewModelInput.swift */; };
+		BA71B5342AE147B300554EC4 /* SplashScreenCoordinatorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5332AE147B300554EC4 /* SplashScreenCoordinatorInput.swift */; };
+		BA71B5362AE1481100554EC4 /* LibraryViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5352AE1481100554EC4 /* LibraryViewModelInput.swift */; };
+		BA71B5382AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5372AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +54,11 @@
 		BA71B5202AE1350A00554EC4 /* ColorStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStorage.swift; sourceTree = "<group>"; };
 		BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
 		BA71B52C2AE13FCE00554EC4 /* SplashScreenLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenLoadingView.swift; sourceTree = "<group>"; };
+		BA71B52F2AE1474C00554EC4 /* LibraryScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreenCoordinator.swift; sourceTree = "<group>"; };
+		BA71B5312AE147A300554EC4 /* SplashScreenViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewModelInput.swift; sourceTree = "<group>"; };
+		BA71B5332AE147B300554EC4 /* SplashScreenCoordinatorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCoordinatorInput.swift; sourceTree = "<group>"; };
+		BA71B5352AE1481100554EC4 /* LibraryViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelInput.swift; sourceTree = "<group>"; };
+		BA71B5372AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreenCoordinatorInput.swift; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,6 +138,7 @@
 		BA71B5092AE11F6600554EC4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BA71B5312AE147A300554EC4 /* SplashScreenViewModelInput.swift */,
 				BA71B5072AE11F6100554EC4 /* SplashScreenViewModel.swift */,
 			);
 			path = ViewModel;
@@ -136,6 +147,7 @@
 		BA71B50C2AE11F9300554EC4 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				BA71B52E2AE1473700554EC4 /* Coordinator */,
 				BA71B50D2AE11F9B00554EC4 /* View */,
 				BA71B5102AE11FAA00554EC4 /* ViewModel */,
 			);
@@ -153,6 +165,7 @@
 		BA71B5102AE11FAA00554EC4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				BA71B5352AE1481100554EC4 /* LibraryViewModelInput.swift */,
 				BA71B50E2AE11FA700554EC4 /* LibraryViewModel.swift */,
 			);
 			path = ViewModel;
@@ -170,6 +183,7 @@
 		BA71B5182AE1273300554EC4 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				BA71B5332AE147B300554EC4 /* SplashScreenCoordinatorInput.swift */,
 				BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */,
 			);
 			path = Coordinator;
@@ -209,6 +223,15 @@
 				BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BA71B52E2AE1473700554EC4 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B5372AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift */,
+				BA71B52F2AE1474C00554EC4 /* LibraryScreenCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		C68BDFAB71627202D63788A1 /* Pods */ = {
@@ -339,14 +362,19 @@
 			files = (
 				BA71B5122AE11FEB00554EC4 /* Coordinator.swift in Sources */,
 				BA71B50F2AE11FA700554EC4 /* LibraryViewModel.swift in Sources */,
+				BA71B5322AE147A300554EC4 /* SplashScreenViewModelInput.swift in Sources */,
 				BA71B4E72AE1024B00554EC4 /* AppDelegate.swift in Sources */,
 				BA71B4FD2AE1095500554EC4 /* SplashScreenViewController.swift in Sources */,
 				BA71B52D2AE13FCE00554EC4 /* SplashScreenLoadingView.swift in Sources */,
 				BA71B51E2AE12E1400554EC4 /* UIImage+Extensions.swift in Sources */,
+				BA71B5302AE1474C00554EC4 /* LibraryScreenCoordinator.swift in Sources */,
 				BA71B5212AE1350A00554EC4 /* ColorStorage.swift in Sources */,
+				BA71B5382AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift in Sources */,
 				BA71B4E92AE1024B00554EC4 /* SceneDelegate.swift in Sources */,
 				BA71B50B2AE11F8B00554EC4 /* LibraryViewController.swift in Sources */,
 				BA71B5142AE11FF400554EC4 /* MainCoordinator.swift in Sources */,
+				BA71B5362AE1481100554EC4 /* LibraryViewModelInput.swift in Sources */,
+				BA71B5342AE147B300554EC4 /* SplashScreenCoordinatorInput.swift in Sources */,
 				BA71B51B2AE12D5400554EC4 /* ImageStorage.swift in Sources */,
 				BA71B5082AE11F6100554EC4 /* SplashScreenViewModel.swift in Sources */,
 				BA71B5172AE1272C00554EC4 /* SplashScreenCoordinator.swift in Sources */,

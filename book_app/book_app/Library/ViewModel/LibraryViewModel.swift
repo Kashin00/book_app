@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class LibraryViewModel: LibraryViewModelInput {
+  
+  private weak var coordinator: LibraryScreenCoordinatorInput?
+  
+  init(coordinator: LibraryScreenCoordinatorInput) {
+    self.coordinator = coordinator
+  }
+}

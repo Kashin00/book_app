@@ -33,6 +33,13 @@ class SplashScreenViewController: UIViewController {
     super.viewDidLoad()
     setupUI()
   }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    loadingView.animate { [weak self] in
+      self?.viewModel?.loadingAnimationDidFinish()
+    }
+  }
 }
 
 //MARK: UI Setup

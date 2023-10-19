@@ -7,15 +7,15 @@
 
 import Foundation
 
-protocol SplashScreenViewModelInput {
-
-}
-
 class SplashScreenViewModel: SplashScreenViewModelInput {
   
   private weak var coordinator: SplashScreenCoordinatorInput?
   
   init(coordinator: SplashScreenCoordinatorInput) {
     self.coordinator = coordinator
+  }
+  
+  func loadingAnimationDidFinish() {
+    coordinator?.finishFlow()
   }
 }
