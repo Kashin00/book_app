@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookGenre {
+struct BookGenre: Hashable {
   let genre: String
   let books: [Book]
 }
