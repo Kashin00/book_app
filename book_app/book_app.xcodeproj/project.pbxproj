@@ -22,6 +22,8 @@
 		BA71B5172AE1272C00554EC4 /* SplashScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */; };
 		BA71B51B2AE12D5400554EC4 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B51A2AE12D5400554EC4 /* ImageStorage.swift */; };
 		BA71B51E2AE12E1400554EC4 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */; };
+		BA71B5212AE1350A00554EC4 /* ColorStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5202AE1350A00554EC4 /* ColorStorage.swift */; };
+		BA71B52B2AE13D3D00554EC4 /* NunitoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +45,8 @@
 		BA71B5162AE1272C00554EC4 /* SplashScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenCoordinator.swift; sourceTree = "<group>"; };
 		BA71B51A2AE12D5400554EC4 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
 		BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
+		BA71B5202AE1350A00554EC4 /* ColorStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorStorage.swift; sourceTree = "<group>"; };
+		BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-Bold.ttf"; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -171,9 +175,11 @@
 		BA71B5192AE12D3B00554EC4 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				BA71B5292AE13C0B00554EC4 /* Fonts */,
 				BA71B4EF2AE1024C00554EC4 /* Assets.xcassets */,
 				BA71B4F12AE1024C00554EC4 /* LaunchScreen.storyboard */,
 				BA71B51A2AE12D5400554EC4 /* ImageStorage.swift */,
+				BA71B5202AE1350A00554EC4 /* ColorStorage.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -192,6 +198,14 @@
 				BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BA71B5292AE13C0B00554EC4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		C68BDFAB71627202D63788A1 /* Pods */ = {
@@ -247,6 +261,7 @@
 			knownRegions = (
 				en,
 				Base,
+				uk,
 			);
 			mainGroup = BA71B4DA2AE1024B00554EC4;
 			productRefGroup = BA71B4E42AE1024B00554EC4 /* Products */;
@@ -266,6 +281,7 @@
 				BA71B4F32AE1024C00554EC4 /* LaunchScreen.storyboard in Resources */,
 				BA71B4FB2AE102E900554EC4 /* GoogleService-Info.plist in Resources */,
 				BA71B4F02AE1024C00554EC4 /* Assets.xcassets in Resources */,
+				BA71B52B2AE13D3D00554EC4 /* NunitoSans-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +339,7 @@
 				BA71B4E72AE1024B00554EC4 /* AppDelegate.swift in Sources */,
 				BA71B4FD2AE1095500554EC4 /* SplashScreenViewController.swift in Sources */,
 				BA71B51E2AE12E1400554EC4 /* UIImage+Extensions.swift in Sources */,
+				BA71B5212AE1350A00554EC4 /* ColorStorage.swift in Sources */,
 				BA71B4E92AE1024B00554EC4 /* SceneDelegate.swift in Sources */,
 				BA71B50B2AE11F8B00554EC4 /* LibraryViewController.swift in Sources */,
 				BA71B5142AE11FF400554EC4 /* MainCoordinator.swift in Sources */,
@@ -350,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -410,6 +428,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
