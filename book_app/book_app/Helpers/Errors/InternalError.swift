@@ -9,6 +9,5 @@ import Foundation
 
 enum InternalError: Error {
   case decodingError
-  case fetchError
   case mappingError
 }
