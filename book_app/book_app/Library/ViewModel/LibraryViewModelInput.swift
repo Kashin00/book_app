@@ -8,4 +8,6 @@
 import Foundation
 
 protocol LibraryViewModelInput {
+
+  func fetchData()
 }
