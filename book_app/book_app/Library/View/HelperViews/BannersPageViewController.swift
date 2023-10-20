@@ -65,13 +65,6 @@ class BannersPageViewController: UIPageViewController {
     switchPageSlider = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoSwipe), userInfo: nil, repeats: true)
   }
   
-  @objc func autoSwipe() {
-    guard let currentIndex = currentViewControllerIndex else { return }
-    let nextIndex = (currentIndex + 1) % pages.count
-    setViewControllers([pages[nextIndex]], direction: .forward, animated: true, completion: nil)
-    updatePageControl()
-  }
-  
   private func configurePageControl() {
     view.addSubview(pageControl)
     
@@ -79,11 +72,28 @@ class BannersPageViewController: UIPageViewController {
       pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
     ])
+    
+    pageControl.addTarget(self, action: #selector(self.didChangePageControlValue), for: .valueChanged)
   }
   
   private func updatePageControl() {
     guard let currentIndex = currentViewControllerIndex else { return }
     self.pageControl.currentPage = currentIndex
+  }
+  
+  @objc private func didChangePageControlValue() {
+    guard let currentIndex = currentViewControllerIndex else { return }
+    restartTimer()
+    let newIndex = pageControl.currentPage
+    let direction: UIPageViewController.NavigationDirection = newIndex > currentIndex ? .forward : .reverse
+    setViewControllers([pages[newIndex]], direction: direction, animated: true)
+  }
+  
+  @objc private func autoSwipe() {
+    guard let currentIndex = currentViewControllerIndex else { return }
+    let nextIndex = (currentIndex + 1) % pages.count
+    setViewControllers([pages[nextIndex]], direction: .forward, animated: true, completion: nil)
+    updatePageControl()
   }
 }
 
