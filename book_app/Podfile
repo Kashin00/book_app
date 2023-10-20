@@ -10,4 +10,5 @@ target 'book_app' do
 pod 'Firebase/Core'
 pod 'Firebase/RemoteConfig'
 
+pod 'SDWebImage'
 end
