@@ -48,6 +48,7 @@ private extension DetailsViewController {
   func setupUI() {
     navigationController?.isNavigationBarHidden = true
     view.backgroundColor = .black
+    scrollView.backgroundColor = ColorStorage.detailsBackground
     setupScrollView()
     setupCarouselBooksView()
     setupBookDescriptionView()

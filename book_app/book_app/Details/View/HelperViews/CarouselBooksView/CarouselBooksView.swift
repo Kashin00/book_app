@@ -34,6 +34,7 @@ class CarouselBooksView: UIView {
     $0.delegate = self
     $0.dataSource = self
     $0.showsHorizontalScrollIndicator = false
+    $0.backgroundColor = .clear
     return $0
   }(UICollectionView(frame: .zero, collectionViewLayout: carouselCollectionViewLayout))
   
