@@ -32,7 +32,7 @@ class FirebaseRemoteConfigManager: RemoteConfigManager {
       do {
         let decodedData = try JSONDecoder().decode(BookRemoteConfiguration.self, from: fetchedData)
         if let booksByGenre = self?.dataMapper?.mapBooksByGenre(decodedData.books) {
-          let library = Library(bookGenres: booksByGenre, topBannerSlides: decodedData.topBannerSlides, youWillLikeSection: decodedData.youWillLikeSection)
+          let library = Library(bookGenres: booksByGenre, topBannerSlides: decodedData.topBannerSlides, favouriteItemsID: decodedData.favouriteItemsID)
           completion(.success(library))
         } else {
           completion(.failure(InternalError.mappingError))

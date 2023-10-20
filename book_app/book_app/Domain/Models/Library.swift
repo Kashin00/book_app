@@ -10,5 +10,5 @@ import Foundation
 struct Library {
   let bookGenres: [BookGenre]
   let topBannerSlides: [TopBannerSlide]
-  let youWillLikeSection: [Int]
+  let favouriteItemsID: [Int]
 }
