@@ -76,7 +76,7 @@ private extension DetailsViewController {
       carouselView.topAnchor.constraint(equalTo: scrollView.topAnchor),
       carouselView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
       carouselView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-      carouselView.heightAnchor.constraint(equalToConstant: 3000), // Установите высоту представления
+
       carouselView.bottomAnchor.constraint(equalTo: bookDescriptionView.topAnchor),
     ])
   }

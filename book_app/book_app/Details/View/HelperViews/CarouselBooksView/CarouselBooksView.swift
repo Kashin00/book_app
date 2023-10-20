@@ -30,15 +30,45 @@ class CarouselBooksView: UIView {
     $0.register(BookPosterCollectioViewCell.self, forCellWithReuseIdentifier: String(describing: BookPosterCollectioViewCell.self))
     $0.delegate = self
     $0.dataSource = self
+    $0.showsHorizontalScrollIndicator = false
     return $0
   }(UICollectionView(frame: .zero, collectionViewLayout: carouselCollectionViewLayout))
   
-  private var currentSelectedIndex = 0
+  private lazy var titleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.textColor = .white
+    $0.font = UIFont(name: "NunitoSans-Bold", size: 20)
+    $0.textAlignment = .center
+    $0.numberOfLines = 1
+    return $0
+  }(UILabel())
+  
+  private lazy var subtitleLabel: UILabel = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.textColor = .white.withAlphaComponent(0.8)
+    $0.font = UIFont(name: "NunitoSans-Bold", size: 14)
+    $0.textAlignment = .center
+    $0.numberOfLines = 1
+    return $0
+  }(UILabel())
+  
+  private lazy var titlesStackView: UIStackView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.axis = .vertical
+    $0.spacing = 4
+    return $0
+  }(UIStackView(arrangedSubviews: [titleLabel, subtitleLabel]))
+  
+  private var currentSelectedIndex = 0 {
+    didSet {
+      updateTitles(with: currentSelectedIndex)
+    }
+  }
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupCollectionView()
-    carouselCollectionView.reloadData()
+    setupTitlesStack()
   }
   
   required init?(coder: NSCoder) {
@@ -48,6 +78,12 @@ class CarouselBooksView: UIView {
   func configure(with books: [Book]) {
     self.books = books
     carouselCollectionView.reloadData()
+    updateTitles(with: 0)
+  }
+  
+  private func updateTitles(with index: Int) {
+    titleLabel.text = books[index].name
+    subtitleLabel.text = books[index].author
   }
 }
 
@@ -61,6 +97,16 @@ private extension CarouselBooksView {
       carouselCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
       carouselCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
       carouselCollectionView.heightAnchor.constraint(equalToConstant: 250)
+    ])
+  }
+  
+  func setupTitlesStack() {
+    addSubview(titlesStackView)
+    
+    NSLayoutConstraint.activate([
+      titlesStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+      titlesStackView.topAnchor.constraint(equalTo: carouselCollectionView.bottomAnchor, constant: 16),
+      titlesStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 18)
     ])
   }
 }
