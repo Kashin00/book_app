@@ -34,7 +34,7 @@ class DetailsViewModel: DetailsViewModelInput {
   
   
   func fetchData() {
-    dataFetcher?.fetchDetailsData(completion: { [weak self] result in
+    dataFetcher?.fetchDetailsData(with: selecteeditemID, completion: { [weak self] result in
       switch result {
       case .success(let data):
         break

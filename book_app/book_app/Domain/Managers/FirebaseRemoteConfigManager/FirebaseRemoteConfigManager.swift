@@ -35,12 +35,3 @@ class FirebaseRemoteConfigManager: RemoteConfigManager {
     }
   }
 }
-
-
-
-
-
-
-
-
-

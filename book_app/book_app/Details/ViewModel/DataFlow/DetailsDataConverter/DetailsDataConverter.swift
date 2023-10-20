@@ -8,11 +8,13 @@
 import Foundation
 
 class DetailsDataConverter: DetailsDataConverterInput {
-  func convertToDetailsCarousel(_ result: Result<Data, Error>) -> Result<DetailsCorousel, Error> {
+  func convertToDetailsCarousel(with selectedItemID: Int,
+                                _ result: Result<Data, Error>) -> Result<DetailsCorousel, Error> {
     switch result {
     case .success(let fetchedData):
       do {
-        let decodedData: DetailsCorousel = try dataDecoder(fetchedData)
+        var decodedData: DetailsCorousel = try dataDecoder(fetchedData)
+        decodedData.tryMove(selectedItemID, to: 0)
         return .success(decodedData)
       } catch {
         return .failure(InternalError.decodingError)

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol DetailsDataFetcherInput {
-  func fetchDetailsData(completion: @escaping (Result<DetailsCorousel, Error>) -> ())
+  func fetchDetailsData(with selectedItemID: Int, completion: @escaping (Result<DetailsCorousel, Error>) -> ())
 }

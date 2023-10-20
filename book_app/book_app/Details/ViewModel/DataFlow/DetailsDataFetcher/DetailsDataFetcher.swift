@@ -18,9 +18,9 @@ class DetailsDataFetcher: DetailsDataFetcherInput {
     self.remoteConfigManager = remoteConfigManager
   }
   
-  func fetchDetailsData(completion: @escaping (Result<DetailsCorousel, Error>) -> ()) {
+  func fetchDetailsData(with selectedItemID: Int, completion: @escaping (Result<DetailsCorousel, Error>) -> ()) {
     remoteConfigManager?.loadData(for: Endpoint.details, { [weak self] result in
-      if let convertedResult = self?.dataConverter?.convertToDetailsCarousel(result) {
+      if let convertedResult = self?.dataConverter?.convertToDetailsCarousel(with: selectedItemID, result) {
         completion(convertedResult)
       } else {
         completion(.failure(InternalError.fetchingError))

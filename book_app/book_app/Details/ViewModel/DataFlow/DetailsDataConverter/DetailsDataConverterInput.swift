@@ -8,5 +8,6 @@
 import Foundation
 
 protocol DetailsDataConverterInput: DataDecoder {
-  func convertToDetailsCarousel(_ result: Result<Data, Error>) -> Result<DetailsCorousel, Error>
+  func convertToDetailsCarousel(with selectedItemID: Int,
+                                _ result: Result<Data, Error>) -> Result<DetailsCorousel, Error>
 }
