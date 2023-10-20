@@ -42,6 +42,9 @@ class DetailsViewController: UIViewController {
       else { return }
       self?.carouselView.configure(with: books)
       self?.bookDescriptionView.configure(with: firstBook)
+      if let likedBooks = self?.viewModel?.favoriteBooks {
+        self?.bookDescriptionView.configure(with: likedBooks)
+      }
     }
   }
 }
@@ -88,11 +91,12 @@ private extension DetailsViewController {
   
   func setupBookDescriptionView() {
     bookDescriptionView.translatesAutoresizingMaskIntoConstraints = false
+    bookDescriptionView.delegate = self
     
     NSLayoutConstraint.activate([
       bookDescriptionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
       bookDescriptionView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-      bookDescriptionView.heightAnchor.constraint(equalToConstant: 500), // Установите высоту представления
+      bookDescriptionView.heightAnchor.constraint(equalToConstant: 1000), // Установите высоту представления
       bookDescriptionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
     ])
   }
@@ -106,4 +110,7 @@ extension DetailsViewController: CarouselBooksViewDelegate {
   func backButtonDidTap() {
     viewModel?.backButtonDidTap()
   }
+}
+
+extension DetailsViewController: BookDescriptionViewDelegate {
 }

@@ -26,7 +26,6 @@ class BookCollectionViewCell: UICollectionViewCell {
   private lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.font = UIFont(name: "NunitoSans-SemiBold", size: 16)
-    $0.textColor = .white.withAlphaComponent(0.7)
     $0.numberOfLines = 2
     return $0
   }(UILabel())
@@ -41,9 +40,12 @@ class BookCollectionViewCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
   
-  func configureCell(with book: Book, and delegate: BookCollectionViewCellDelegate) {
+  func configureCell(with book: Book,
+                     and delegate: BookCollectionViewCellDelegate,
+                     titleLabelTextColor: UIColor = .white.withAlphaComponent(0.7)) {
     self.delegate = delegate
     titleLabel.text = book.name
+    titleLabel.textColor = titleLabelTextColor
     
     delegate.getImage(for: book.coverURL) { [weak self] (image) in
       self?.setImage(with: image)

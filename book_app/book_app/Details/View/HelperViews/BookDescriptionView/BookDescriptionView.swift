@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol BookDescriptionViewDelegate: AnyObject {
+  func getImage(for url: String, competion: @escaping (UIImage) -> ())
+}
 
 class BookDescriptionView: UIView {
+  
+  weak var delegate: BookDescriptionViewDelegate?
 
   private lazy var readersView = BookCharacteristicView(with: "Readers")
   private lazy var likesView = BookCharacteristicView(with: "Likes")
@@ -27,6 +32,11 @@ class BookDescriptionView: UIView {
     return $0
   }(BookSummaryView())
   
+  private lazy var alsoLikeView: AlsoLikeView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    return $0
+  }(AlsoLikeView())
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupUI()
@@ -38,6 +48,10 @@ class BookDescriptionView: UIView {
     quotesView.configure(with: book.quotes)
     genreView.configure(with: book.genre)
     bookSummary.configure(with: book.summary)
+  }
+  
+  func configure(with books: [Book]) {
+    alsoLikeView.configure(with: books)
   }
   
   required init?(coder: NSCoder) {
@@ -52,6 +66,7 @@ private extension BookDescriptionView {
     backgroundColor = .white
     setupBookCharacteristicStackView()
     setupBookSummary()
+    setupAlsoLikeView()
   }
   
   func setupBookCharacteristicStackView() {
@@ -74,5 +89,21 @@ private extension BookDescriptionView {
       bookSummary.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
     ])
   }
+  
+  func setupAlsoLikeView() {
+    addSubview(alsoLikeView)
+    alsoLikeView.delegate = self
+    
+    NSLayoutConstraint.activate([
+      alsoLikeView.topAnchor.constraint(equalTo: bookSummary.bottomAnchor, constant: 16),
+      alsoLikeView.leadingAnchor.constraint(equalTo: leadingAnchor),
+      alsoLikeView.trailingAnchor.constraint(equalTo: trailingAnchor)
+    ])
+  }
 }
 
+extension BookDescriptionView: AlsoLikeViewDelegate {
+  func getImage(for url: String, competion: @escaping (UIImage) -> ()) {
+    delegate?.getImage(for: url, competion: competion)
+  }
+}
