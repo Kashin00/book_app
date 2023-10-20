@@ -9,6 +9,7 @@ import UIKit
 
 protocol CarouselBooksViewDelegate: AnyObject {
   func getImage(for url: String, competion: @escaping (Data) -> ())
+  func backButtonDidTap()
 }
 
 class CarouselBooksView: UIView {
@@ -17,11 +18,13 @@ class CarouselBooksView: UIView {
   
   private var books: [Book] = []
   
-  //  private lazy var backButton: UIButton = {
-  //    $0.translatesAutoresizingMaskIntoConstraints = false
-  //    $0.setImage(UIImage(named: ImageStorage.backArrow), for: .normal)
-  //    return $0
-  //  }(UIButton())
+  private lazy var backButton: UIButton = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.addTarget(self, action: #selector(backButtonDidTap), for: .touchUpInside)
+    let image = UIImage(named: ImageStorage.DetailsScreen.backArrow)
+    $0.setImage(image, for: .normal)
+    return $0
+  }(UIButton(frame: .zero))
   
   private lazy var carouselCollectionViewLayout = CarouselCollectionFlowLayout()
   
@@ -67,6 +70,7 @@ class CarouselBooksView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setupBackButton()
     setupCollectionView()
     setupTitlesStack()
   }
@@ -85,15 +89,30 @@ class CarouselBooksView: UIView {
     titleLabel.text = books[index].name
     subtitleLabel.text = books[index].author
   }
+  
+  @objc private func backButtonDidTap() {
+    delegate?.backButtonDidTap()
+  }
 }
 
 //MARK: UI
 private extension CarouselBooksView {
+  func setupBackButton() {
+  addSubview(backButton)
+    
+    NSLayoutConstraint.activate([
+      backButton.topAnchor.constraint(equalTo: topAnchor),
+      backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+      backButton.heightAnchor.constraint(equalToConstant: 24),
+      backButton.widthAnchor.constraint(equalToConstant: 24),
+    ])
+  }
+  
   func setupCollectionView() {
     addSubview(carouselCollectionView)
     
     NSLayoutConstraint.activate([
-      carouselCollectionView.topAnchor.constraint(equalTo: topAnchor),
+      carouselCollectionView.topAnchor.constraint(equalTo: backButton.bottomAnchor, constant: 8),
       carouselCollectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
       carouselCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
       carouselCollectionView.heightAnchor.constraint(equalToConstant: 250)

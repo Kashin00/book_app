@@ -14,7 +14,8 @@ protocol DetailsViewModelInput {
   
   func fetchData()
   func loadImage(for url: String, competion: @escaping (Data) -> ())
-
+  func backButtonDidTap()
+  
   //MARK: Bindings
   var bindReloadData: (()->Void)? { get set }
 }

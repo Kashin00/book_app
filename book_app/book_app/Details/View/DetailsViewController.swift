@@ -97,4 +97,8 @@ extension DetailsViewController: CarouselBooksViewDelegate {
   func getImage(for url: String, competion: @escaping (Data) -> ()) {
     viewModel?.loadImage(for: url, competion: competion)
   }
+  
+  func backButtonDidTap() {
+    viewModel?.backButtonDidTap()
+  }
 }

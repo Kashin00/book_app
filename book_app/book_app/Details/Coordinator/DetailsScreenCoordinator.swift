@@ -27,4 +27,8 @@ class DetailsScreenCoordinator: DetailsScreenCoordinatorInput {
     let vc = DetailsViewController(viewModel: viewModel)
     navigationController.pushViewController(vc, animated: true)
   }
+  
+  func close() {
+    navigationController.popViewController(animated: true)
+  }
 }

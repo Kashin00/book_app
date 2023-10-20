@@ -8,4 +8,5 @@
 import Foundation
 
 protocol DetailsScreenCoordinatorInput: Coordinator {
+  func close()
 }
