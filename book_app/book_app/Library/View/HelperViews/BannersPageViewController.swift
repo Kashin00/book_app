@@ -47,6 +47,14 @@ class BannersPageViewController: UIPageViewController {
     configurePageControl()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    if !pages.isEmpty {
+      restartTimer()
+    }
+  }
+  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     switchPageSlider?.invalidate()
