@@ -46,7 +46,6 @@ class BannerRepresentableViewController: UIViewController {
   }
   
   private func loadImage() {
-    print(banner.cover)
     delegate?.loadImage(for: banner.cover, competion: { [weak self] (imageData) in
       DispatchQueue.main.async {
         guard let self else { return }
