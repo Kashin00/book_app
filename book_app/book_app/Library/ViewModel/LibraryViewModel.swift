@@ -12,8 +12,8 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
   
   private weak var coordinator: LibraryScreenCoordinatorInput?
   
-  private var firebaseRemoteConfigManager: RemoteConfigManager?
   private var imageLoader: ImageLoaderInput?
+  private var dataFetcher: LibraryDataFetcherInput?
   
   var library: Library?
   
@@ -39,15 +39,15 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
   var bindReloadData: (()->Void) = {}
   
   init(coordinator: LibraryScreenCoordinatorInput,
-       firebaseRemoteConfigManager: RemoteConfigManager = FirebaseRemoteConfigManager(),
+       dataFetcher: LibraryDataFetcherInput = LibraryDataFetcher(),
        imageLoader: ImageLoaderInput = ImageLoader()) {
     self.coordinator = coordinator
-    self.firebaseRemoteConfigManager = firebaseRemoteConfigManager
     self.imageLoader = imageLoader
+    self.dataFetcher = dataFetcher
   }
   
   func fetchData() {
-    firebaseRemoteConfigManager?.fetchLibrary({ [weak self] result in
+    dataFetcher?.fetchLibrary(completion: { [weak self] result in
       switch result {
       case .success(let data):
         self?.library = data

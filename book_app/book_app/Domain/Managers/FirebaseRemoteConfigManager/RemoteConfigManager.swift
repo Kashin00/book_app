@@ -8,5 +8,5 @@
 import Foundation
 
 protocol RemoteConfigManager {
-  func fetchLibrary(_ completion: @escaping (Result<Library, Error>) -> ())
+  func loadData(for endpoint: String, _ completion: @escaping (Result<Data, Error>) -> ())
 }
