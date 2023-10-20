@@ -18,6 +18,7 @@ class BannersPageViewController: UIPageViewController {
   }(UIPageControl())
   
   private lazy var pages: [UIViewController] = []
+  private var switchPageSlider: Timer?
   
   override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
     super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
@@ -34,20 +35,34 @@ class BannersPageViewController: UIPageViewController {
     super.viewDidLoad()
     view.layer.masksToBounds = true
     view.layer.cornerRadius = 20
-    
     configurePageControl()
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    switchPageSlider?.invalidate()
   }
   
   func configure(with viewControllers: [UIViewController]) {
     pages = viewControllers
     setViewControllers([pages[0]], direction: .forward, animated: true)
     view.bringSubviewToFront(pageControl)
+
+    switchPageSlider = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoSwipe), userInfo: nil, repeats: true)
+  }
+  
+  @objc func autoSwipe() {
+    if let currentPresentedVC = viewControllers?.first,
+       let index = pages.firstIndex(of: currentPresentedVC) {
+      let nextIndex = (index + 1) % pages.count
+      setViewControllers([pages[nextIndex]], direction: .forward, animated: true, completion: nil)
+    }
   }
   
   private func configurePageControl() {
     view.addSubview(pageControl)
     pageControl.numberOfPages = pages.count
-
+    
     NSLayoutConstraint.activate([
       pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
@@ -61,16 +76,16 @@ extension BannersPageViewController: UIPageViewControllerDelegate, UIPageViewCon
     guard let index = pages.firstIndex(of: viewController) else {
       return nil
     }
-
+    
     let previousIndex = (index - 1 + pages.count) % pages.count
     return pages[previousIndex]
   }
-
+  
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
     guard let index = pages.firstIndex(of: viewController) else {
       return nil
     }
-
+    
     let nextIndex = (index + 1) % pages.count
     return pages[nextIndex]
   }
