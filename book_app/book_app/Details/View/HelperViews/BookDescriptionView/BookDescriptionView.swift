@@ -37,6 +37,17 @@ class BookDescriptionView: UIView {
     return $0
   }(AlsoLikeView())
   
+  private lazy var readNowButton: UIButton = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.setTitle("Read Now", for: .normal)
+    $0.setTitleColor(.white, for: .normal)
+    $0.titleLabel?.font = UIFont(name: "NunitoSans-ExtraBold", size: 16)
+    $0.backgroundColor = ColorStorage.mainPink
+    $0.layer.masksToBounds = true
+    $0.layer.cornerRadius = 23
+    return $0
+  }(UIButton())
+  
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupUI()
@@ -67,6 +78,7 @@ private extension BookDescriptionView {
     setupBookCharacteristicStackView()
     setupBookSummary()
     setupAlsoLikeView()
+    setupReadNowButton()
   }
   
   func setupBookCharacteristicStackView() {
@@ -98,6 +110,18 @@ private extension BookDescriptionView {
       alsoLikeView.topAnchor.constraint(equalTo: bookSummary.bottomAnchor, constant: 16),
       alsoLikeView.leadingAnchor.constraint(equalTo: leadingAnchor),
       alsoLikeView.trailingAnchor.constraint(equalTo: trailingAnchor)
+    ])
+  }
+  
+  func setupReadNowButton() {
+    addSubview(readNowButton)
+
+    NSLayoutConstraint.activate([
+      readNowButton.topAnchor.constraint(equalTo: alsoLikeView.bottomAnchor, constant: 24),
+      readNowButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 48),
+      readNowButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -48),
+      readNowButton.heightAnchor.constraint(equalToConstant: 48),
+      readNowButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60)
     ])
   }
 }

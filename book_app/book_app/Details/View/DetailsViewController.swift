@@ -96,7 +96,6 @@ private extension DetailsViewController {
     NSLayoutConstraint.activate([
       bookDescriptionView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
       bookDescriptionView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-      bookDescriptionView.heightAnchor.constraint(equalToConstant: 1000), // Установите высоту представления
       bookDescriptionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
     ])
   }

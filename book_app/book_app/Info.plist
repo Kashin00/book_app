@@ -6,6 +6,7 @@
 	<array>
 		<string>NunitoSans-Bold.ttf</string>
 		<string>NunitoSans-SemiBoldItalic.ttf</string>
+		<string>NunitoSans-ExtraBold.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
