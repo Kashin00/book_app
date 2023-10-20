@@ -46,6 +46,7 @@
 		BABBDAAF2AE197B300433EDD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAAE2AE197B300433EDD /* ImageLoader.swift */; };
 		BAC2FBCF2AE1B16800D5E5A0 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */; };
 		BAC2FBD12AE1C7A400D5E5A0 /* BannersPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */; };
+		BAF5A1BD2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF5A1BC2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		BABBDAAE2AE197B300433EDD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHeaderView.swift; sourceTree = "<group>"; };
 		BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersPageViewController.swift; sourceTree = "<group>"; };
+		BAF5A1BC2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerRepresentableViewController.swift; sourceTree = "<group>"; };
 		C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_book_app.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -342,6 +344,7 @@
 				BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */,
 				BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */,
 				BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */,
+				BAF5A1BC2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift */,
 			);
 			path = HelperViews;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				BAC2FBCF2AE1B16800D5E5A0 /* LibraryHeaderView.swift in Sources */,
 				BA71B53D2AE177F800554EC4 /* FirebaseRemoteConfigManager.swift in Sources */,
 				BABBDA992AE1837F00433EDD /* Book.swift in Sources */,
+				BAF5A1BD2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift in Sources */,
 				BABBDA9B2AE1838600433EDD /* TopBannerSlide.swift in Sources */,
 				BA71B5302AE1474C00554EC4 /* LibraryScreenCoordinator.swift in Sources */,
 				BA71B5212AE1350A00554EC4 /* ColorStorage.swift in Sources */,

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class LibraryViewModel: LibraryViewModelInput {
+class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewControllerDelegate {
   
   private weak var coordinator: LibraryScreenCoordinatorInput?
   
@@ -19,13 +19,21 @@ class LibraryViewModel: LibraryViewModelInput {
   
   var bannerControllers: [UIViewController] {
     get {
-      return bannerControllersStorage
+      return getBannerControllers()
     }
   }
 
-  private lazy var bannerControllersStorage = library?.topBannerSlides.compactMap({ banner in
-    BannerRepresentableViewController(banner: banner)
-  }) ?? []
+  private lazy var bannerControllersStorage: [UIViewController] = []
+  
+  func getBannerControllers() -> [UIViewController] {
+    if bannerControllersStorage.isEmpty {
+      bannerControllersStorage = library?.topBannerSlides.compactMap({ banner in
+        BannerRepresentableViewController(with: banner, and: self)
+      }) ?? []
+    }
+    
+    return bannerControllersStorage
+  }
   
   //MARK: Binding
   var bindReloadData: (()->Void) = {}

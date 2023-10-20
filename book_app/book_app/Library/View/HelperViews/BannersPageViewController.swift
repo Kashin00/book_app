@@ -7,36 +7,6 @@
 
 import UIKit
 
-class BannerRepresentableViewController: UIViewController {
-  
-  private var banner: TopBannerSlide
-  
-  private var bannerImageView: UIImageView = {
-    $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.contentMode = .scaleToFill
-    return $0
-  }(UIImageView(frame: .zero))
-  
-  init(banner: TopBannerSlide) {
-    self.banner = banner
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    view.backgroundColor = .clear
-  }
-  
-  private func setupImageView() {
-    view.addSubview(bannerImageView)
-    bannerImageView.frame = view.bounds
-  }
-}
-
 class BannersPageViewController: UIPageViewController {
   
   private lazy var pageControl: UIPageControl = {
@@ -71,6 +41,7 @@ class BannersPageViewController: UIPageViewController {
   func configure(with viewControllers: [UIViewController]) {
     pages = viewControllers
     setViewControllers([pages[0]], direction: .forward, animated: true)
+    view.bringSubviewToFront(pageControl)
   }
   
   private func configurePageControl() {
@@ -90,17 +61,17 @@ extension BannersPageViewController: UIPageViewControllerDelegate, UIPageViewCon
     guard let index = pages.firstIndex(of: viewController) else {
       return nil
     }
+
     let previousIndex = (index - 1 + pages.count) % pages.count
-//    pageControl.currentPage = previousIndex
     return pages[previousIndex]
   }
-  
+
   func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
     guard let index = pages.firstIndex(of: viewController) else {
       return nil
     }
+
     let nextIndex = (index + 1) % pages.count
-//    pageControl.currentPage = nextIndex
     return pages[nextIndex]
   }
 }
