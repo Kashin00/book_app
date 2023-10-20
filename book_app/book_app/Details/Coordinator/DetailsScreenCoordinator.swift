@@ -13,6 +13,8 @@ class DetailsScreenCoordinator: DetailsScreenCoordinatorInput {
   
   var navigationController: UINavigationController
   
+  var finishFlowHandler: (() -> Void)?
+  
   private var itemID: Int
   private var favoriteItemIndices: [Int]?
   
@@ -30,5 +32,6 @@ class DetailsScreenCoordinator: DetailsScreenCoordinatorInput {
   
   func close() {
     navigationController.popViewController(animated: true)
+    finishFlowHandler?()
   }
 }

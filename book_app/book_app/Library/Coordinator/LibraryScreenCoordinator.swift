@@ -29,6 +29,9 @@ class LibraryScreenCoordinator: LibraryScreenCoordinatorInput {
                                                       for: itemID,
                                                       with: favoriteItemIndices)
     childCoordinators.append(detailsCoordinator)
+    detailsCoordinator.finishFlowHandler = { [weak self] in
+      self?.childCoordinators.removeAll(where: { $0 is DetailsScreenCoordinator })
+    }
     detailsCoordinator.start()
   }
 }
