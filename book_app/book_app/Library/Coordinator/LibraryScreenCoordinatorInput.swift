@@ -8,5 +8,5 @@
 import Foundation
 
 protocol LibraryScreenCoordinatorInput: Coordinator {
-  func showDetailsScreen(with indices: [Int]?)
+  func showDetailsScreen(for itemID: Int, with favoriteItemIndices: [Int]?)
 }

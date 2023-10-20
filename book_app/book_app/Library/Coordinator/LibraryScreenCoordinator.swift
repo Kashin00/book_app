@@ -21,10 +21,14 @@ class LibraryScreenCoordinator: LibraryScreenCoordinatorInput {
     let viewModel = LibraryViewModel(coordinator: self)
     let vc = LibraryViewController(viewModel: viewModel)
     vc.modalPresentationStyle = .fullScreen
-    navigationController.present(vc, animated: true)
+    navigationController.setViewControllers([vc], animated: false)
   }
   
-  func showDetailsScreen(with indices: [Int]?) {
-    
+  func showDetailsScreen(for itemID: Int, with favoriteItemIndices: [Int]?) {
+    let detailsCoordinator = DetailsScreenCoordinator(navigationController: navigationController,
+                                                      for: itemID,
+                                                      with: favoriteItemIndices)
+    childCoordinators.append(detailsCoordinator)
+    detailsCoordinator.start()
   }
 }

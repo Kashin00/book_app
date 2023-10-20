@@ -8,19 +8,23 @@
 import UIKit
 
 class DetailsScreenCoordinator: DetailsScreenCoordinatorInput {
+  
   var childCoordinators: [Coordinator] = []
   
   var navigationController: UINavigationController
   
+  private var itemID: Int
+  private var favoriteItemIndices: [Int]?
   
-  init(navigationController: UINavigationController) {
+  init(navigationController: UINavigationController, for itemID: Int, with favoriteItemIndices: [Int]?) {
     self.navigationController = navigationController
+    self.itemID = itemID
+    self.favoriteItemIndices = favoriteItemIndices
   }
   
   func start() {
-    let viewModel = DetailsViewModel(coordinator: self)
-//    let vc = LibraryViewController(viewModel: viewModel)
-//    vc.modalPresentationStyle = .fullScreen
-//    navigationController.present(vc, animated: true)
+    let viewModel = DetailsViewModel(itemID: itemID, favoriteItemIndices: favoriteItemIndices, coordinator: self)
+    let vc = DetailsViewController(viewModel: viewModel)
+    navigationController.pushViewController(vc, animated: true)
   }
 }

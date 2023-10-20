@@ -14,7 +14,9 @@ class DetailsViewModel: DetailsViewModelInput {
   private var firebaseRemoteConfigManager: RemoteConfigManager?
   private var imageLoader: ImageLoaderInput?
   
-  init(coordinator: DetailsScreenCoordinatorInput,
+  init(itemID: Int,
+       favoriteItemIndices: [Int]?,
+       coordinator: DetailsScreenCoordinatorInput,
        firebaseRemoteConfigManager: RemoteConfigManager = FirebaseRemoteConfigManager(),
        imageLoader: ImageLoaderInput = ImageLoader()) {
     self.coordinator = coordinator

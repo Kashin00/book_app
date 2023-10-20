@@ -62,7 +62,8 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
     imageLoader?.loadImage(with: url, competion)
   }
   
-  func itemDidSelected() {
-    coordinator?.showDetailsScreen(with: library?.favouriteItemsID)
+  func itemDidSelected(by indexPath: IndexPath) {
+    guard let id = library?.bookGenres[indexPath.section].books[indexPath.item].id else { return }
+    coordinator?.showDetailsScreen(for: id, with: library?.favouriteItemsID)
   }
 }
