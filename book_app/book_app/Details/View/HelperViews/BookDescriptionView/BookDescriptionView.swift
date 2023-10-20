@@ -32,6 +32,14 @@ class BookDescriptionView: UIView {
     setupUI()
   }
   
+  func configure(with book: Book) {
+    readersView.configure(with: book.views)
+    likesView.configure(with: book.likes)
+    quotesView.configure(with: book.quotes)
+    genreView.configure(with: book.genre)
+    bookSummary.configure(with: book.summary)
+  }
+  
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
@@ -63,8 +71,7 @@ private extension BookDescriptionView {
     NSLayoutConstraint.activate([
       bookSummary.topAnchor.constraint(equalTo: bookCharacteristicStackView.bottomAnchor, constant: 10),
       bookSummary.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-      bookSummary.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-      bookSummary.heightAnchor.constraint(equalToConstant: 100)
+      bookSummary.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16)
     ])
   }
 }

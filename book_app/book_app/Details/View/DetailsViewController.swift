@@ -37,8 +37,11 @@ class DetailsViewController: UIViewController {
   
   func bindReloadData() {
     viewModel?.bindReloadData = { [weak self] in
-      guard let books = self?.viewModel?.books else { return }
+      guard let books = self?.viewModel?.books,
+            let firstBook = books.first
+      else { return }
       self?.carouselView.configure(with: books)
+      self?.bookDescriptionView.configure(with: firstBook)
     }
   }
 }

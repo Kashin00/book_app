@@ -35,7 +35,6 @@ class BookSummaryView: UIView {
     $0.textColor = .black
     $0.numberOfLines = 0
     $0.font = UIFont(name: "NunitoSans-SemiBold", size: 14)
-    $0.lineBreakMode = .byWordWrapping
     return $0
   }(UILabel(frame: .zero))
   
