@@ -9,7 +9,7 @@ import Foundation
 
 protocol DetailsViewModelInput {
   var selecteeditemID: Int { get }
-  var favoriteItemsIndices: [Int]? { get }
+  var favoriteBooks: [Book]? { get }
   var books: [Book]? { get }
   
   func fetchData()

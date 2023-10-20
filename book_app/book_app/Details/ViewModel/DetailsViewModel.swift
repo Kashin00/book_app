@@ -14,8 +14,10 @@ class DetailsViewModel: DetailsViewModelInput {
   private var imageLoader: ImageLoaderInput?
   private var dataFetcher: DetailsDataFetcherInput?
   
+  private var favoriteItemsIndices: [Int]?
+  
   var selecteeditemID: Int
-  var favoriteItemsIndices: [Int]?
+  var favoriteBooks: [Book]?
   var books: [Book]?
 
   var bindReloadData: (() -> Void)?
@@ -37,7 +39,15 @@ class DetailsViewModel: DetailsViewModelInput {
     dataFetcher?.fetchDetailsData(with: selecteeditemID, completion: { [weak self] result in
       switch result {
       case .success(let data):
-        break
+        self?.books = data.books
+        
+        self?.favoriteBooks = data.books.compactMap({ book in
+          if self?.favoriteItemsIndices?.contains(book.id) == true {
+            return book
+          } else {
+            return nil
+          }
+        })
       case .failure(let error):
         break
       }
