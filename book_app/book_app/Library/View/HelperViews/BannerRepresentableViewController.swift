@@ -9,6 +9,7 @@ import UIKit
 
 protocol BannerRepresentableViewControllerDelegate: AnyObject {
   func loadImage(for url: String, competion: @escaping (Data) -> ())
+  func didTapped(with banner: TopBannerSlide)
 }
 
 class BannerRepresentableViewController: UIViewController {
@@ -27,6 +28,10 @@ class BannerRepresentableViewController: UIViewController {
     self.delegate = delegate
     super.init(nibName: nil, bundle: nil)
     self.loadImage()
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    delegate?.didTapped(with: banner)
   }
   
   required init?(coder: NSCoder) {
