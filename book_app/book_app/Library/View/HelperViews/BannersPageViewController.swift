@@ -8,6 +8,9 @@
 import UIKit
 
 class BannersPageViewController: UIPageViewController {
+
+  private lazy var pages: [UIViewController] = []
+  private var switchPageSlider: Timer?
   
   private lazy var pageControl: UIPageControl = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -17,8 +20,14 @@ class BannersPageViewController: UIPageViewController {
     return $0
   }(UIPageControl())
   
-  private lazy var pages: [UIViewController] = []
-  private var switchPageSlider: Timer?
+  private var currentViewControllerIndex: Int? {
+    
+    guard let vcs = viewControllers,
+          let currentIndex = pages.firstIndex(of: vcs[0])
+    else { return nil }
+    
+    return currentIndex
+  }
   
   override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
     super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
@@ -57,12 +66,10 @@ class BannersPageViewController: UIPageViewController {
   }
   
   @objc func autoSwipe() {
-    if let currentPresentedVC = viewControllers?.first,
-       let index = pages.firstIndex(of: currentPresentedVC) {
-      let nextIndex = (index + 1) % pages.count
-      setViewControllers([pages[nextIndex]], direction: .forward, animated: true, completion: nil)
-      updatePageControl()
-    }
+    guard let currentIndex = currentViewControllerIndex else { return }
+    let nextIndex = (currentIndex + 1) % pages.count
+    setViewControllers([pages[nextIndex]], direction: .forward, animated: true, completion: nil)
+    updatePageControl()
   }
   
   private func configurePageControl() {
@@ -75,12 +82,9 @@ class BannersPageViewController: UIPageViewController {
   }
   
   private func updatePageControl() {
-    guard let vcs = viewControllers else { return }
-    guard let currentIndex = pages.firstIndex(of: vcs[0]) else { return }
+    guard let currentIndex = currentViewControllerIndex else { return }
     self.pageControl.currentPage = currentIndex
   }
-  
-
 }
 
 extension BannersPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
