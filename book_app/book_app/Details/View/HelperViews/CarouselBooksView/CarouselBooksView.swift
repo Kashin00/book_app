@@ -9,6 +9,8 @@ import UIKit
 
 class CarouselBooksView: UIView {
   
+  private var books: [Book] = []
+  
   //  private lazy var backButton: UIButton = {
   //    $0.translatesAutoresizingMaskIntoConstraints = false
   //    $0.setImage(UIImage(named: ImageStorage.backArrow), for: .normal)
@@ -26,7 +28,6 @@ class CarouselBooksView: UIView {
   }(UICollectionView(frame: .zero, collectionViewLayout: carouselCollectionViewLayout))
   
   private var currentSelectedIndex = 0
-  private var noOfCards = 5
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -36,6 +37,11 @@ class CarouselBooksView: UIView {
   
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
+  }
+  
+  func configure(with books: [Book]) {
+    self.books = books
+    carouselCollectionView.reloadData()
   }
 }
 
@@ -56,17 +62,17 @@ private extension CarouselBooksView {
 //MARK: UICollectionViewDelegate, UICollectionViewDataSource
 extension CarouselBooksView: UICollectionViewDelegate, UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    5
+    return books.count
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
     cell.backgroundColor = .red
-    if currentSelectedIndex == indexPath.row {
-      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
-                            scaleX: carouselCollectionViewLayout.scaleX,
-                            scaleY: carouselCollectionViewLayout.scaleY)
-    }
+//    if currentSelectedIndex == indexPath.row {
+//      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
+//                            scaleX: carouselCollectionViewLayout.scaleX,
+//                            scaleY: carouselCollectionViewLayout.scaleY)
+//    }
     
     return cell
   }
@@ -112,7 +118,7 @@ extension CarouselBooksView {
       print("Incorrect velocity for collection view")
     }
     
-    let safeIndex = max(0, min(selectedIndex, noOfCards - 1))
+    let safeIndex = max(0, min(selectedIndex, books.count - 1))
     let selectedIndexPath = IndexPath(row: safeIndex, section: 0)
     
     flowLayout.collectionView!.scrollToItem(at: selectedIndexPath, at: .centeredHorizontally, animated: true)

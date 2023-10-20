@@ -48,6 +48,8 @@ class DetailsViewModel: DetailsViewModelInput {
             return nil
           }
         })
+        
+        self?.bindReloadData?()
       case .failure(let error):
         break
       }
