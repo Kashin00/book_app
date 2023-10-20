@@ -47,7 +47,12 @@ class BannersPageViewController: UIPageViewController {
     pages = viewControllers
     setViewControllers([pages[0]], direction: .forward, animated: true)
     view.bringSubviewToFront(pageControl)
-
+    pageControl.numberOfPages = pages.count
+    restartTimer()
+  }
+  
+  private func restartTimer() {
+    switchPageSlider?.invalidate()
     switchPageSlider = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoSwipe), userInfo: nil, repeats: true)
   }
   
@@ -56,18 +61,26 @@ class BannersPageViewController: UIPageViewController {
        let index = pages.firstIndex(of: currentPresentedVC) {
       let nextIndex = (index + 1) % pages.count
       setViewControllers([pages[nextIndex]], direction: .forward, animated: true, completion: nil)
+      updatePageControl()
     }
   }
   
   private func configurePageControl() {
     view.addSubview(pageControl)
-    pageControl.numberOfPages = pages.count
     
     NSLayoutConstraint.activate([
       pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
     ])
   }
+  
+  private func updatePageControl() {
+    guard let vcs = viewControllers else { return }
+    guard let currentIndex = pages.firstIndex(of: vcs[0]) else { return }
+    self.pageControl.currentPage = currentIndex
+  }
+  
+
 }
 
 extension BannersPageViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
@@ -76,7 +89,7 @@ extension BannersPageViewController: UIPageViewControllerDelegate, UIPageViewCon
     guard let index = pages.firstIndex(of: viewController) else {
       return nil
     }
-    
+    restartTimer()
     let previousIndex = (index - 1 + pages.count) % pages.count
     return pages[previousIndex]
   }
@@ -85,8 +98,15 @@ extension BannersPageViewController: UIPageViewControllerDelegate, UIPageViewCon
     guard let index = pages.firstIndex(of: viewController) else {
       return nil
     }
-    
+    restartTimer()
     let nextIndex = (index + 1) % pages.count
     return pages[nextIndex]
+  }
+  
+  func pageViewController(_ pageViewController: UIPageViewController,
+                          didFinishAnimating finished: Bool,
+                          previousViewControllers: [UIViewController],
+                          transitionCompleted completed: Bool) {
+    updatePageControl()
   }
 }
