@@ -102,7 +102,7 @@ private extension CarouselBooksView {
   addSubview(backButton)
     
     NSLayoutConstraint.activate([
-      backButton.topAnchor.constraint(equalTo: topAnchor),
+      backButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
       backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
       backButton.heightAnchor.constraint(equalToConstant: 24),
       backButton.widthAnchor.constraint(equalToConstant: 24),
