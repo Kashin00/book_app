@@ -62,7 +62,8 @@ private extension DetailsViewController {
   func setupScrollView() {
     scrollView.translatesAutoresizingMaskIntoConstraints = false
     scrollView.backgroundColor = ColorStorage.detailsBackground
-
+    scrollView.contentInsetAdjustmentBehavior = .never
+    
     view.addSubview(scrollView)
     scrollView.addSubview(carouselView)
     scrollView.addSubview(bookDescriptionView)
@@ -81,10 +82,9 @@ private extension DetailsViewController {
     carouselView.delegate = self
     
     NSLayoutConstraint.activate([
-      carouselView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+      carouselView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: UIApplication.shared.keyWindowInConnectedScenes?.safeAreaInsets.top ?? 50),
       carouselView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
       carouselView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
-
       carouselView.bottomAnchor.constraint(equalTo: bookDescriptionView.topAnchor),
     ])
   }
