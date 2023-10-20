@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol CarouselBooksViewDelegate: AnyObject {
+  func getImage(for url: String, competion: @escaping (Data) -> ())
+}
+
 class CarouselBooksView: UIView {
+  
+  weak var delegate: CarouselBooksViewDelegate?
   
   private var books: [Book] = []
   
@@ -21,7 +27,7 @@ class CarouselBooksView: UIView {
   
   private lazy var carouselCollectionView: UICollectionView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+    $0.register(BookPosterCollectioViewCell.self, forCellWithReuseIdentifier: String(describing: BookPosterCollectioViewCell.self))
     $0.delegate = self
     $0.dataSource = self
     return $0
@@ -66,13 +72,19 @@ extension CarouselBooksView: UICollectionViewDelegate, UICollectionViewDataSourc
   }
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-    cell.backgroundColor = .red
-//    if currentSelectedIndex == indexPath.row {
-//      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
-//                            scaleX: carouselCollectionViewLayout.scaleX,
-//                            scaleY: carouselCollectionViewLayout.scaleY)
-//    }
+    guard let cell = collectionView.dequeueReusableCell(
+      withReuseIdentifier: String(describing: BookPosterCollectioViewCell.self),
+      for: indexPath) as? BookPosterCollectioViewCell
+    else { return BookPosterCollectioViewCell() }
+    
+    cell.configure(with: books[indexPath.item], and: self)
+    
+    
+    //    if currentSelectedIndex == indexPath.row {
+    //      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
+    //                            scaleX: carouselCollectionViewLayout.scaleX,
+    //                            scaleY: carouselCollectionViewLayout.scaleY)
+    //    }
     
     return cell
   }
@@ -133,5 +145,12 @@ extension CarouselBooksView {
     nextSelectedCell?.transformToLarge(with: carouselCollectionViewLayout.duration,
                                        scaleX: carouselCollectionViewLayout.scaleX,
                                        scaleY: carouselCollectionViewLayout.scaleY)
+  }
+}
+
+
+extension CarouselBooksView: BookPosterCollectioViewCellDelegate {
+  func getImage(for url: String, competion: @escaping (Data) -> ()) {
+    delegate?.getImage(for: url, competion: competion)
   }
 }

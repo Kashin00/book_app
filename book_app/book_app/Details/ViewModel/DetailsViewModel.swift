@@ -55,4 +55,8 @@ class DetailsViewModel: DetailsViewModelInput {
       }
     })
   }
+  
+  func loadImage(for url: String, competion: @escaping (Data) -> ()) {
+    imageLoader?.loadImage(with: url, competion)
+  }
 }
