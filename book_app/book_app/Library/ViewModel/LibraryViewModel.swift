@@ -36,7 +36,7 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
   }
   
   //MARK: Binding
-  var bindReloadData: (()->Void) = {}
+  var bindReloadData: (()->Void)?
   
   init(coordinator: LibraryScreenCoordinatorInput,
        dataFetcher: LibraryDataFetcherInput = LibraryDataFetcher(),
@@ -51,7 +51,7 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
       switch result {
       case .success(let data):
         self?.library = data
-        self?.bindReloadData()
+        self?.bindReloadData?()
       case .failure(let error):
         break
       }

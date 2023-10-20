@@ -19,7 +19,7 @@ class LibraryDataConverter: LibraryDataConverterInput {
     switch result {
     case .success(let fetchedData):
       do {
-        let decodedData = try JSONDecoder().decode(BookRemoteConfiguration.self, from: fetchedData)
+        let decodedData: BookRemoteConfiguration = try dataDecoder(fetchedData)
         if let booksByGenre = dataMapper?.mapBooksByGenre(decodedData.books) {
           let library = Library(bookGenres: booksByGenre, topBannerSlides: decodedData.topBannerSlides, favouriteItemsID: decodedData.favouriteItemsID)
           return .success(library)

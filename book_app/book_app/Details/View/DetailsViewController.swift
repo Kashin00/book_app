@@ -18,6 +18,7 @@ class DetailsViewController: UIViewController {
   init(viewModel: DetailsViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
+    bindViewModel()
   }
   
   required init?(coder: NSCoder) {
@@ -27,6 +28,17 @@ class DetailsViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+    viewModel?.fetchData()
+  }
+  
+  func bindViewModel() {
+    bindReloadData()
+  }
+  
+  func bindReloadData() {
+    viewModel?.bindReloadData = { [weak self] in
+      
+    }
   }
 }
 
@@ -63,7 +75,7 @@ private extension DetailsViewController {
       carouselView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
       carouselView.heightAnchor.constraint(equalToConstant: 3000), // Установите высоту представления
       carouselView.bottomAnchor.constraint(equalTo: bookDescriptionView.topAnchor),
-      ])
+    ])
   }
   
   func setupBookDescriptionView() {

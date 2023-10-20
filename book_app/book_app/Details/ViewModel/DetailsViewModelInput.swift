@@ -8,5 +8,12 @@
 import Foundation
 
 protocol DetailsViewModelInput {
-
+  var selecteeditemID: Int { get }
+  var favoriteItemsIndices: [Int]? { get }
+  var books: [Book]? { get }
+  
+  func fetchData()
+  
+  //MARK: Bindings
+  var bindReloadData: (()->Void)? { get set }
 }

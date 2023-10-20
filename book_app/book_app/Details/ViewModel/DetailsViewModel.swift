@@ -11,16 +11,36 @@ class DetailsViewModel: DetailsViewModelInput {
   
   private weak var coordinator: DetailsScreenCoordinatorInput?
   
-  private var firebaseRemoteConfigManager: RemoteConfigManager?
   private var imageLoader: ImageLoaderInput?
+  private var dataFetcher: DetailsDataFetcherInput?
+  
+  var selecteeditemID: Int
+  var favoriteItemsIndices: [Int]?
+  var books: [Book]?
+
+  var bindReloadData: (() -> Void)?
   
   init(itemID: Int,
        favoriteItemIndices: [Int]?,
        coordinator: DetailsScreenCoordinatorInput,
-       firebaseRemoteConfigManager: RemoteConfigManager = FirebaseRemoteConfigManager(),
-       imageLoader: ImageLoaderInput = ImageLoader()) {
+       imageLoader: ImageLoaderInput = ImageLoader(),
+       dataFetcher: DetailsDataFetcherInput = DetailsDataFetcher()) {
     self.coordinator = coordinator
-    self.firebaseRemoteConfigManager = firebaseRemoteConfigManager
     self.imageLoader = imageLoader
+    self.selecteeditemID = itemID
+    self.favoriteItemsIndices = favoriteItemIndices
+    self.dataFetcher = dataFetcher
+  }
+  
+  
+  func fetchData() {
+    dataFetcher?.fetchDetailsData(completion: { [weak self] result in
+      switch result {
+      case .success(let data):
+        break
+      case .failure(let error):
+        break
+      }
+    })
   }
 }

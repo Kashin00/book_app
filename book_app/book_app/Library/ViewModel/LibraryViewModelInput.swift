@@ -18,5 +18,5 @@ protocol LibraryViewModelInput {
   func itemDidSelected(by indexPath: IndexPath)
   
   //MARK: Bindings
-  var bindReloadData: (()->Void) { get set }
+  var bindReloadData: (()->Void)? { get set }
 }
