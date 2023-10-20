@@ -19,7 +19,7 @@ class LibraryHeaderView: UICollectionReusableView {
     return $0
   }(UILabel())
   
-  private lazy var pageViewController = BannersPageViewController()
+  private var pageViewController: BannersPageViewController?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -41,15 +41,21 @@ class LibraryHeaderView: UICollectionReusableView {
     ])
   }
   
+  func configure(with viewControllers: [UIViewController]) {
+    pageViewController?.configure(with: viewControllers)
+  }
+  
   private func setupPageViewController() {
-    addSubview(pageViewController.view)
+    pageViewController = BannersPageViewController()
+    guard let pageViewControllerView = pageViewController?.view else { return }
+    addSubview(pageViewControllerView)
     
-    pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
+    pageViewController?.view.translatesAutoresizingMaskIntoConstraints = false
     NSLayoutConstraint.activate([
-      pageViewController.view.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 28),
-      pageViewController.view.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-      pageViewController.view.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-      pageViewController.view.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.25)
+      pageViewControllerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 28),
+      pageViewControllerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
+      pageViewControllerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
+      pageViewControllerView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height * 0.25)
     ])
   }
 }

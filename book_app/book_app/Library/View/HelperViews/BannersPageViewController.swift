@@ -7,10 +7,37 @@
 
 import UIKit
 
-class BannersPageViewController: UIPageViewController {
+class BannerRepresentableViewController: UIViewController {
   
-  let vc1 = UIViewController()
-  let vc2 = UIViewController()
+  private var banner: TopBannerSlide
+  
+  private var bannerImageView: UIImageView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
+    $0.contentMode = .scaleToFill
+    return $0
+  }(UIImageView(frame: .zero))
+  
+  init(banner: TopBannerSlide) {
+    self.banner = banner
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .clear
+  }
+  
+  private func setupImageView() {
+    view.addSubview(bannerImageView)
+    bannerImageView.frame = view.bounds
+  }
+}
+
+class BannersPageViewController: UIPageViewController {
   
   private lazy var pageControl: UIPageControl = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -20,11 +47,10 @@ class BannersPageViewController: UIPageViewController {
     return $0
   }(UIPageControl())
   
-  lazy var pages = [vc1, vc2]
+  private lazy var pages: [UIViewController] = []
   
   override init(transitionStyle style: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation, options: [UIPageViewController.OptionsKey : Any]? = nil) {
     super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: options)
-    setViewControllers([pages[0]], direction: .forward, animated: true)
     view.backgroundColor = .black
     delegate = self
     dataSource = self
@@ -39,14 +65,15 @@ class BannersPageViewController: UIPageViewController {
     view.layer.masksToBounds = true
     view.layer.cornerRadius = 20
     
-    vc1.view.backgroundColor = .red
-    vc2.view.backgroundColor = .yellow
     configurePageControl()
-    
   }
   
-  func configurePageControl() {
-    
+  func configure(with viewControllers: [UIViewController]) {
+    pages = viewControllers
+    setViewControllers([pages[0]], direction: .forward, animated: true)
+  }
+  
+  private func configurePageControl() {
     view.addSubview(pageControl)
     pageControl.numberOfPages = pages.count
 

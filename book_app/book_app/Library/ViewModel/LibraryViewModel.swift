@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class LibraryViewModel: LibraryViewModelInput {
   
@@ -15,6 +16,16 @@ class LibraryViewModel: LibraryViewModelInput {
   private var imageLoader: ImageLoaderInput?
   
   var library: Library?
+  
+  var bannerControllers: [UIViewController] {
+    get {
+      return bannerControllersStorage
+    }
+  }
+
+  private lazy var bannerControllersStorage = library?.topBannerSlides.compactMap({ banner in
+    BannerRepresentableViewController(banner: banner)
+  }) ?? []
   
   //MARK: Binding
   var bindReloadData: (()->Void) = {}

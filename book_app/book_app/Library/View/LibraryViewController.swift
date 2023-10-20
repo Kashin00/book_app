@@ -14,6 +14,8 @@ class LibraryViewController: UIViewController {
   private lazy var libraryCollectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
   private var dataSource: UICollectionViewDiffableDataSource<BookGenre, Book>?
   
+  fileprivate var globalHeaderIndexPath = IndexPath()
+  
   init(viewModel: LibraryViewModelInput) {
     super.init(nibName: nil, bundle: nil)
     self.viewModel = viewModel
@@ -48,7 +50,10 @@ class LibraryViewController: UIViewController {
   
   private func bindDataReloading() {
     viewModel?.bindReloadData = { [weak self] in
-      self?.reloadData()
+      DispatchQueue.main.async {
+        self?.reloadData()
+        self?.updateGlobalHeader()
+      }
     }
   }
 }
@@ -60,6 +65,13 @@ extension LibraryViewController: UICollectionViewDelegate {
 
 //MARK: UICollectionViewDataSource
 private extension LibraryViewController {
+  
+  func updateGlobalHeader() {
+    if let banners = self.viewModel?.bannerControllers, !banners.isEmpty {
+      (self.libraryCollectionView.supplementaryView(forElementKind: LibraryHeaderView.kind, at: self.globalHeaderIndexPath) as? LibraryHeaderView)?.configure(with: banners)
+    }
+  }
+  
   func createDataSource() {
     dataSource = UICollectionViewDiffableDataSource<BookGenre, Book>(collectionView: libraryCollectionView, cellProvider: { collectionView, indexPath, book in
       guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: BookCollectionViewCell.self), for: indexPath) as? BookCollectionViewCell
@@ -78,7 +90,8 @@ private extension LibraryViewController {
           withReuseIdentifier: String(describing: LibraryHeaderView.self),
           for: indexPath) as? LibraryHeaderView else { return UICollectionReusableView() }
 
-      
+        self?.globalHeaderIndexPath = indexPath
+
         return headerView
       default:
         guard let headerView = self?.libraryCollectionView.dequeueReusableSupplementaryView(
