@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A2667E98849D68F54F414791 /* Pods_book_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */; };
+		BA3E7B672AE2AF4A00CE3C3E /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E7B662AE2AF4A00CE3C3E /* UICollectionViewCell.swift */; };
+		BA3E7B6A2AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E7B692AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift */; };
 		BA71B4E72AE1024B00554EC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B4E62AE1024B00554EC4 /* AppDelegate.swift */; };
 		BA71B4E92AE1024B00554EC4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B4E82AE1024B00554EC4 /* SceneDelegate.swift */; };
 		BA71B4F02AE1024C00554EC4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA71B4EF2AE1024C00554EC4 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 /* Begin PBXFileReference section */
 		3DFD204E8A97FAE42CCD6D4E /* Pods-book_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-book_app.debug.xcconfig"; path = "Target Support Files/Pods-book_app/Pods-book_app.debug.xcconfig"; sourceTree = "<group>"; };
 		96E4D680B4FE7F23674F3D05 /* Pods-book_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-book_app.release.xcconfig"; path = "Target Support Files/Pods-book_app/Pods-book_app.release.xcconfig"; sourceTree = "<group>"; };
+		BA3E7B662AE2AF4A00CE3C3E /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		BA3E7B692AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		BA71B4E32AE1024B00554EC4 /* book_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = book_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA71B4E62AE1024B00554EC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA71B4E82AE1024B00554EC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +132,15 @@
 				C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA3E7B682AE2B0E000CE3C3E /* CarouselBooksView */ = {
+			isa = PBXGroup;
+			children = (
+				BAF5A1CD2AE298220096FEA3 /* CarouselBooksView.swift */,
+				BA3E7B692AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift */,
+			);
+			path = CarouselBooksView;
 			sourceTree = "<group>";
 		};
 		BA71B4DA2AE1024B00554EC4 = {
@@ -266,6 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */,
+				BA3E7B662AE2AF4A00CE3C3E /* UICollectionViewCell.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -404,7 +418,7 @@
 		BAF5A1CC2AE298180096FEA3 /* HelperViews */ = {
 			isa = PBXGroup;
 			children = (
-				BAF5A1CD2AE298220096FEA3 /* CarouselBooksView.swift */,
+				BA3E7B682AE2B0E000CE3C3E /* CarouselBooksView */,
 				BAF5A1CF2AE298290096FEA3 /* BookDescriptionView.swift */,
 			);
 			path = HelperViews;
@@ -545,6 +559,7 @@
 				BA71B50F2AE11FA700554EC4 /* LibraryViewModel.swift in Sources */,
 				BA71B5322AE147A300554EC4 /* SplashScreenViewModelInput.swift in Sources */,
 				BA71B4E72AE1024B00554EC4 /* AppDelegate.swift in Sources */,
+				BA3E7B672AE2AF4A00CE3C3E /* UICollectionViewCell.swift in Sources */,
 				BAF5A1C72AE285FF0096FEA3 /* DetailsViewController.swift in Sources */,
 				BA71B4FD2AE1095500554EC4 /* SplashScreenViewController.swift in Sources */,
 				BA71B52D2AE13FCE00554EC4 /* SplashScreenLoadingView.swift in Sources */,
@@ -558,6 +573,7 @@
 				BABBDA9B2AE1838600433EDD /* TopBannerSlide.swift in Sources */,
 				BAF5A1D02AE2982A0096FEA3 /* BookDescriptionView.swift in Sources */,
 				BA71B5302AE1474C00554EC4 /* LibraryScreenCoordinator.swift in Sources */,
+				BA3E7B6A2AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift in Sources */,
 				BA71B5212AE1350A00554EC4 /* ColorStorage.swift in Sources */,
 				BABBDA9E2AE183EF00433EDD /* RemoteConfigDataMapper.swift in Sources */,
 				BA71B5382AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift in Sources */,

@@ -11,6 +11,7 @@ enum ImageStorage {
   enum SplashScreen {
     static let background = "background"
     static let backgroundHeartsLayer = "background_hearts_layer"
+    static let backArrow = "back_arrow"
   }
 }
 

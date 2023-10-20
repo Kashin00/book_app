@@ -57,7 +57,6 @@ private extension DetailsViewController {
   func setupCarouselBooksView() {
     carouselView.translatesAutoresizingMaskIntoConstraints = false
     
-    
     NSLayoutConstraint.activate([
       carouselView.topAnchor.constraint(equalTo: scrollView.topAnchor),
       carouselView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
@@ -65,7 +64,6 @@ private extension DetailsViewController {
       carouselView.heightAnchor.constraint(equalToConstant: 3000), // Установите высоту представления
       carouselView.bottomAnchor.constraint(equalTo: bookDescriptionView.topAnchor),
       ])
-    
   }
   
   func setupBookDescriptionView() {
@@ -77,7 +75,5 @@ private extension DetailsViewController {
       bookDescriptionView.heightAnchor.constraint(equalToConstant: 500), // Установите высоту представления
       bookDescriptionView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
     ])
-    
   }
-  
 }
