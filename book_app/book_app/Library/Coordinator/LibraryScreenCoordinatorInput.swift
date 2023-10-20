@@ -8,4 +8,5 @@
 import Foundation
 
 protocol LibraryScreenCoordinatorInput: Coordinator {
+  func showDetailsScreen(with indices: [Int]?)
 }

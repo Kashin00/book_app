@@ -60,7 +60,9 @@ class LibraryViewController: UIViewController {
 
 // MARK: UICollectionViewDelegate
 extension LibraryViewController: UICollectionViewDelegate {
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    viewModel?.itemDidSelected()
+  }
 }
 
 //MARK: UICollectionViewDataSource

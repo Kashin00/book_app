@@ -61,4 +61,8 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
   func loadImage(for url: String, competion: @escaping (Data) -> ()) {
     imageLoader?.loadImage(with: url, competion)
   }
+  
+  func itemDidSelected() {
+    coordinator?.showDetailsScreen(with: library?.favouriteItemsID)
+  }
 }

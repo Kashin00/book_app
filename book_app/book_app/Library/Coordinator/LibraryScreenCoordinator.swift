@@ -23,4 +23,8 @@ class LibraryScreenCoordinator: LibraryScreenCoordinatorInput {
     vc.modalPresentationStyle = .fullScreen
     navigationController.present(vc, animated: true)
   }
+  
+  func showDetailsScreen(with indices: [Int]?) {
+    
+  }
 }

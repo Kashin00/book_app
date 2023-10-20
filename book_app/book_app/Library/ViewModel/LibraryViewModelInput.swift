@@ -15,7 +15,8 @@ protocol LibraryViewModelInput {
   
   func fetchData()
   func loadImage(for url: String, competion: @escaping (Data) -> ())
-
+  func itemDidSelected()
+  
   //MARK: Bindings
   var bindReloadData: (()->Void) { get set }
 }
