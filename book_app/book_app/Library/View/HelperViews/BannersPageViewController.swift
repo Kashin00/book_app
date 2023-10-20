@@ -70,7 +70,7 @@ class BannersPageViewController: UIPageViewController {
     
     NSLayoutConstraint.activate([
       pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10)
+      pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8)
     ])
     
     pageControl.addTarget(self, action: #selector(self.didChangePageControlValue), for: .valueChanged)
