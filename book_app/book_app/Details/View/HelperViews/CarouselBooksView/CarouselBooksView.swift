@@ -8,7 +8,7 @@
 import UIKit
 
 protocol CarouselBooksViewDelegate: AnyObject {
-  func getImage(for url: String, competion: @escaping (Data) -> ())
+  func getImage(for url: String, competion: @escaping (UIImage) -> ())
   func backButtonDidTap()
 }
 
@@ -215,7 +215,7 @@ extension CarouselBooksView {
 
 
 extension CarouselBooksView: BookPosterCollectioViewCellDelegate {
-  func getImage(for url: String, competion: @escaping (Data) -> ()) {
+  func getImage(for url: String, competion: @escaping (UIImage) -> ()) {
     delegate?.getImage(for: url, competion: competion)
   }
 }

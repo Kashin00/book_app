@@ -172,7 +172,7 @@ private extension LibraryViewController {
 }
 
 extension LibraryViewController: BookCollectionViewCellDelegate {
-  func getImage(for url: String, competion: @escaping (Data) -> ()) {
+  func getImage(for url: String, competion: @escaping (UIImage) -> ()) {
     viewModel?.loadImage(for: url, competion: competion)
   }
 }

@@ -94,7 +94,7 @@ private extension DetailsViewController {
 }
 
 extension DetailsViewController: CarouselBooksViewDelegate {
-  func getImage(for url: String, competion: @escaping (Data) -> ()) {
+  func getImage(for url: String, competion: @escaping (UIImage) -> ()) {
     viewModel?.loadImage(for: url, competion: competion)
   }
   

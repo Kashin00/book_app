@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BannerRepresentableViewControllerDelegate: AnyObject {
-  func loadImage(for url: String, competion: @escaping (Data) -> ())
+  func loadImage(for url: String, competion: @escaping (UIImage) -> ())
   func didTapped(with banner: TopBannerSlide)
 }
 
@@ -51,13 +51,13 @@ class BannerRepresentableViewController: UIViewController {
   }
   
   private func loadImage() {
-    delegate?.loadImage(for: banner.cover, competion: { [weak self] (imageData) in
+    delegate?.loadImage(for: banner.cover, competion: { [weak self] (image) in
       DispatchQueue.main.async {
         guard let self else { return }
         UIView.transition(with: self.bannerImageView,
                           duration: 0.75,
                           options: .transitionCrossDissolve,
-                          animations: { self.bannerImageView.image = UIImage(data: imageData) },
+                          animations: { self.bannerImageView.image = image },
                           completion: nil)
       }
     })

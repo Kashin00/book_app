@@ -8,7 +8,7 @@
 import UIKit
 
 protocol BookCollectionViewCellDelegate: AnyObject {
-  func getImage(for url: String, competion: @escaping (Data) -> ())
+  func getImage(for url: String, competion: @escaping (UIImage) -> ())
 }
 
 class BookCollectionViewCell: UICollectionViewCell {
@@ -45,8 +45,8 @@ class BookCollectionViewCell: UICollectionViewCell {
     self.delegate = delegate
     titleLabel.text = book.name
     
-    delegate.getImage(for: book.coverURL) { [weak self] (imageData) in
-      self?.setImage(with: UIImage(data: imageData))
+    delegate.getImage(for: book.coverURL) { [weak self] (image) in
+      self?.setImage(with: image)
     }
   }
   

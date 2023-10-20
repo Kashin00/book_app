@@ -14,7 +14,7 @@ protocol LibraryViewModelInput {
   var bannerControllers: [UIViewController] { get }
   
   func fetchData()
-  func loadImage(for url: String, competion: @escaping (Data) -> ())
+  func loadImage(for url: String, competion: @escaping (UIImage) -> ())
   func itemDidSelected(by indexPath: IndexPath)
   
   //MARK: Bindings

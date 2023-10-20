@@ -6,17 +6,25 @@
 //
 
 import UIKit
+import SDWebImage
 
 protocol ImageLoaderInput {
-  func loadImage(with url: String, _ completion: @escaping (Data) -> ())
+  func loadImage(with url: String, _ completion: @escaping (UIImage) -> ())
 }
 
 class ImageLoader: ImageLoaderInput {
-  func loadImage(with url: String, _ completion: @escaping (Data) -> ()) {
+  
+  private var imageViews: [UIImageView] = []
+  
+  func loadImage(with url: String, _ completion: @escaping (UIImage) -> ()) {
     guard let url = URL(string: url) else { return }
-    URLSession.shared.dataTask(with: url) { data, reponse, error in
-      guard let data = data else { return }
-      completion(data)
-    }.resume()
-  }  
+    let imageView = UIImageView()
+    imageViews.append(imageView)
+    imageView.sd_setImage(with: url) { [weak self] image, _, _, _ in
+      if let image {
+        completion(image)
+      }
+      self?.imageViews.removeAll(where: { $0 === imageView })
+    }
+  }
 }
