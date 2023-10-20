@@ -30,6 +30,18 @@ class CarouselBooksView: UIView {
   
   override init(frame: CGRect) {
     super.init(frame: frame)
+    setupCollectionView()
+    carouselCollectionView.reloadData()
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+}
+
+//MARK: UI
+private extension CarouselBooksView {
+  func setupCollectionView() {
     addSubview(carouselCollectionView)
     
     NSLayoutConstraint.activate([
@@ -38,14 +50,31 @@ class CarouselBooksView: UIView {
       carouselCollectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
       carouselCollectionView.heightAnchor.constraint(equalToConstant: 250)
     ])
-    carouselCollectionView.reloadData()
+  }
+}
+
+//MARK: UICollectionViewDelegate, UICollectionViewDataSource
+extension CarouselBooksView: UICollectionViewDelegate, UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    5
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+    cell.backgroundColor = .red
+    if currentSelectedIndex == indexPath.row {
+      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
+                            scaleX: carouselCollectionViewLayout.scaleX,
+                            scaleY: carouselCollectionViewLayout.scaleY)
+    }
     
+    return cell
   }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
+}
+
+// MARK: ScrollView methods
+
+extension CarouselBooksView {
   func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
     let currentCell = carouselCollectionView.cellForItem(at: IndexPath(row: Int(currentSelectedIndex), section: 0))
     currentCell?.transformToStandard(with: carouselCollectionViewLayout.duration)
@@ -98,24 +127,5 @@ class CarouselBooksView: UIView {
     nextSelectedCell?.transformToLarge(with: carouselCollectionViewLayout.duration,
                                        scaleX: carouselCollectionViewLayout.scaleX,
                                        scaleY: carouselCollectionViewLayout.scaleY)
-  }
-}
-
-
-extension CarouselBooksView: UICollectionViewDelegate, UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    5
-  }
-  
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-    cell.backgroundColor = .red
-    if currentSelectedIndex == indexPath.row {
-      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
-                            scaleX: carouselCollectionViewLayout.scaleX,
-                            scaleY: carouselCollectionViewLayout.scaleY)
-    }
-    
-    return cell
   }
 }
