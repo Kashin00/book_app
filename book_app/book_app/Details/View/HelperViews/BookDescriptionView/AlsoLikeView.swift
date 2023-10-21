@@ -64,6 +64,7 @@ class AlsoLikeView: UIView {
     booksCollectionView.translatesAutoresizingMaskIntoConstraints = false
     booksCollectionView.register(BookCollectionViewCell.self, forCellWithReuseIdentifier: String(describing: BookCollectionViewCell.self))
     booksCollectionView.backgroundColor = .clear
+    booksCollectionView.bounces = false
     
     NSLayoutConstraint.activate([
       booksCollectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 16),

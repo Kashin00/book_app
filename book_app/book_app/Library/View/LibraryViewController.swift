@@ -28,6 +28,7 @@ class LibraryViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    navigationController?.isNavigationBarHidden = true
     view.backgroundColor = .black
     viewModel?.fetchData()
     setupLibraryCollectionView()
