@@ -113,7 +113,6 @@ private extension LibraryViewController {
       
         return headerView
       }
-
     }
   }
   

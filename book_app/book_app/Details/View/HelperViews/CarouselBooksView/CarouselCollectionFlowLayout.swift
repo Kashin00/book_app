@@ -30,5 +30,4 @@ class CarouselCollectionFlowLayout: UICollectionViewFlowLayout {
     collectionView.contentInset = UIEdgeInsets(top: 0, left: horizontalInsets, bottom: 0, right: horizontalInsets)
     minimumLineSpacing = (itemSize.width * 1.25 - itemSize.width)
   }
-  
 }

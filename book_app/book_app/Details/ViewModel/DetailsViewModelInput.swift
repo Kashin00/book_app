@@ -8,6 +8,7 @@
 import UIKit
 
 protocol DetailsViewModelInput {
+ 
   var selecteeditemID: Int { get }
   var favoriteBooks: [Book]? { get }
   var books: [Book]? { get }

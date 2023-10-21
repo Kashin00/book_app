@@ -143,7 +143,8 @@ extension CarouselBooksView: UICollectionViewDelegate, UICollectionViewDataSourc
     return books.count
   }
   
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+  func collectionView(_ collectionView: UICollectionView,
+                      cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(
       withReuseIdentifier: String(describing: BookPosterCollectioViewCell.self),
       for: indexPath) as? BookPosterCollectioViewCell
@@ -171,7 +172,9 @@ extension CarouselBooksView {
     
   }
   
-  func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+  func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                 withVelocity velocity: CGPoint,
+                                 targetContentOffset: UnsafeMutablePointer<CGPoint>) {
     
     guard scrollView == carouselCollectionView,
           let flowLayout = carouselCollectionView.collectionViewLayout as? CarouselCollectionFlowLayout
