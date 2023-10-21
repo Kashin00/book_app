@@ -57,12 +57,7 @@ class BookPosterCollectioViewCell: UICollectionViewCell {
   
   private func setImage(with image: UIImage?) {
     DispatchQueue.main.async { [weak self] in
-      guard let self else { return }
-      UIView.transition(with: self.posterImageView,
-                        duration: 0.75,
-                        options: .transitionCrossDissolve,
-                        animations: { self.posterImageView.image = image },
-                        completion: nil)
+      self?.posterImageView.setImageAnimatableIfNeede(with: image)
     }
   }
 }
