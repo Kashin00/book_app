@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A2667E98849D68F54F414791 /* Pods_book_app.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3E2DA637A23CFEEFB6DE0C1 /* Pods_book_app.framework */; };
+		BA0422132AE46774000242F5 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA0422122AE46774000242F5 /* UIImageView+Extensions.swift */; };
 		BA3E7B672AE2AF4A00CE3C3E /* UICollectionViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E7B662AE2AF4A00CE3C3E /* UICollectionViewCell+Extensions.swift */; };
 		BA3E7B6A2AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E7B692AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift */; };
 		BA3E7B6C2AE2BE7300CE3C3E /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA3E7B6B2AE2BE7300CE3C3E /* DataDecoder.swift */; };
@@ -78,6 +79,7 @@
 /* Begin PBXFileReference section */
 		3DFD204E8A97FAE42CCD6D4E /* Pods-book_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-book_app.debug.xcconfig"; path = "Target Support Files/Pods-book_app/Pods-book_app.debug.xcconfig"; sourceTree = "<group>"; };
 		96E4D680B4FE7F23674F3D05 /* Pods-book_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-book_app.release.xcconfig"; path = "Target Support Files/Pods-book_app/Pods-book_app.release.xcconfig"; sourceTree = "<group>"; };
+		BA0422122AE46774000242F5 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		BA3E7B662AE2AF4A00CE3C3E /* UICollectionViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		BA3E7B692AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		BA3E7B6B2AE2BE7300CE3C3E /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 				BA71B51D2AE12E1400554EC4 /* UIImage+Extensions.swift */,
 				BA3E7B662AE2AF4A00CE3C3E /* UICollectionViewCell+Extensions.swift */,
 				BA3E7B932AE317F400CE3C3E /* UIApplication+Extensions.swift */,
+				BA0422122AE46774000242F5 /* UIImageView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -697,6 +700,7 @@
 				BAF5A1BD2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift in Sources */,
 				BAF5A1CB2AE2861B0096FEA3 /* DetailsViewModel.swift in Sources */,
 				BABBDA9B2AE1838600433EDD /* TopBannerSlide.swift in Sources */,
+				BA0422132AE46774000242F5 /* UIImageView+Extensions.swift in Sources */,
 				BAF5A1D02AE2982A0096FEA3 /* BookDescriptionView.swift in Sources */,
 				BA71B5302AE1474C00554EC4 /* LibraryScreenCoordinator.swift in Sources */,
 				BA3E7B6A2AE2B0F000CE3C3E /* CarouselCollectionFlowLayout.swift in Sources */,
