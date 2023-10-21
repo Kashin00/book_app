@@ -34,6 +34,12 @@ class LibraryViewController: UIViewController {
     setupLibraryCollectionView()
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    // Collection view creates layout from save area. We need to add some extra spacing
+    libraryCollectionView.contentInset = UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0)
+  }
+  
   private func setupLibraryCollectionView() {
     view.addSubview(libraryCollectionView)
     libraryCollectionView.frame = view.bounds
