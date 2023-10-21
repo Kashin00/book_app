@@ -19,7 +19,9 @@ class BannerRepresentableViewController: UIViewController {
   private var banner: TopBannerSlide
   
   private var bannerImageView: UIImageView = {
+    $0.translatesAutoresizingMaskIntoConstraints = false
     $0.contentMode = .scaleAspectFill
+    $0.clipsToBounds = true
     return $0
   }(UIImageView(frame: .zero))
   
@@ -46,8 +48,13 @@ class BannerRepresentableViewController: UIViewController {
   
   private func setupImageView() {
     view.addSubview(bannerImageView)
-    bannerImageView.frame = view.bounds
-    bannerImageView.clipsToBounds = true
+    
+    NSLayoutConstraint.activate([
+      bannerImageView.topAnchor.constraint(equalTo: view.topAnchor),
+      bannerImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      bannerImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      bannerImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+    ])
   }
   
   private func loadImage() {

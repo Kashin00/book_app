@@ -57,7 +57,7 @@ class DetailsViewModel: DetailsViewModelInput {
   }
   
   func loadImage(for url: String, competion: @escaping (UIImage) -> ()) {
-    imageLoader?.loadImage(with: url, competion)
+    imageLoader?.loadImage(with: url, with: false, competion)
   }
   
   func backButtonDidTap() {
