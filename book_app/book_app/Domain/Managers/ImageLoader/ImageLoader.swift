@@ -9,18 +9,19 @@ import UIKit
 import SDWebImage
 
 protocol ImageLoaderInput {
-  func loadImage(with url: String, _ completion: @escaping (UIImage) -> ())
+  func loadImage(with url: String, with options: Bool, _ completion: @escaping (UIImage) -> ())
 }
 
 class ImageLoader: ImageLoaderInput {
   
   private var imageViews: [UIImageView] = []
   
-  func loadImage(with url: String, _ completion: @escaping (UIImage) -> ()) {
+  func loadImage(with url: String, with options: Bool, _ completion: @escaping (UIImage) -> ()) {
     guard let url = URL(string: url) else { return }
     let imageView = UIImageView()
     imageViews.append(imageView)
-    imageView.sd_setImage(with: url) { [weak self] image, _, _, _ in
+    imageView.sd_setImage(with: url, placeholderImage: nil,
+                          options: options ? [.refreshCached, .fromLoaderOnly] : []) { [weak self] image, _, _, _ in
       if let image {
         completion(image)
       }

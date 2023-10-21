@@ -59,7 +59,9 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
   }
   
   func loadImage(for url: String, competion: @escaping (UIImage) -> ()) {
-    imageLoader?.loadImage(with: url, competion)
+    //Need to prevent dynamic image caching
+    let isDomainWithDynamicImages = url.contains("unsplash.it")
+    imageLoader?.loadImage(with: url, with: isDomainWithDynamicImages, competion)
   }
   
   func itemDidSelected(by indexPath: IndexPath) {
