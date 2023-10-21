@@ -61,10 +61,10 @@
 		BABBDAA62AE184B400433EDD /* RemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA52AE184B400433EDD /* RemoteConfigManager.swift */; };
 		BABBDAA82AE1853F00433EDD /* LibrarySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */; };
 		BABBDAAA2AE186AF00433EDD /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */; };
-		BABBDAAC2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */; };
 		BABBDAAF2AE197B300433EDD /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDAAE2AE197B300433EDD /* ImageLoader.swift */; };
 		BAC2FBCF2AE1B16800D5E5A0 /* LibraryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */; };
 		BAC2FBD12AE1C7A400D5E5A0 /* BannersPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */; };
+		BADA64032AE3F38A007DFADA /* NunitoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BADA64022AE3F38A007DFADA /* NunitoSans-SemiBold.ttf */; };
 		BAF5A1BD2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF5A1BC2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift */; };
 		BAF5A1C32AE285EF0096FEA3 /* DetailsScreenCoordinatorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF5A1C22AE285EF0096FEA3 /* DetailsScreenCoordinatorInput.swift */; };
 		BAF5A1C52AE285F40096FEA3 /* DetailsScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF5A1C42AE285F40096FEA3 /* DetailsScreenCoordinator.swift */; };
@@ -133,10 +133,10 @@
 		BABBDAA52AE184B400433EDD /* RemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteConfigManager.swift; sourceTree = "<group>"; };
 		BABBDAA72AE1853F00433EDD /* LibrarySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrarySectionHeaderView.swift; sourceTree = "<group>"; };
 		BABBDAA92AE186AF00433EDD /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
-		BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		BABBDAAE2AE197B300433EDD /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		BAC2FBCE2AE1B16800D5E5A0 /* LibraryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryHeaderView.swift; sourceTree = "<group>"; };
 		BAC2FBD02AE1C7A400D5E5A0 /* BannersPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannersPageViewController.swift; sourceTree = "<group>"; };
+		BADA64022AE3F38A007DFADA /* NunitoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NunitoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		BAF5A1BC2AE27E2F0096FEA3 /* BannerRepresentableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerRepresentableViewController.swift; sourceTree = "<group>"; };
 		BAF5A1C22AE285EF0096FEA3 /* DetailsScreenCoordinatorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenCoordinatorInput.swift; sourceTree = "<group>"; };
 		BAF5A1C42AE285F40096FEA3 /* DetailsScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreenCoordinator.swift; sourceTree = "<group>"; };
@@ -398,8 +398,8 @@
 		BA71B5292AE13C0B00554EC4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				BABBDAAB2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf */,
 				BA71B52A2AE13C3800554EC4 /* NunitoSans-Bold.ttf */,
+				BADA64022AE3F38A007DFADA /* NunitoSans-SemiBold.ttf */,
 				BA3E7B912AE307EC00CE3C3E /* NunitoSans-ExtraBold.ttf */,
 			);
 			path = Fonts;
@@ -612,7 +612,7 @@
 				BA71B4F32AE1024C00554EC4 /* LaunchScreen.storyboard in Resources */,
 				BA71B4FB2AE102E900554EC4 /* GoogleService-Info.plist in Resources */,
 				BA71B4F02AE1024C00554EC4 /* Assets.xcassets in Resources */,
-				BABBDAAC2AE18E5300433EDD /* NunitoSans-SemiBoldItalic.ttf in Resources */,
+				BADA64032AE3F38A007DFADA /* NunitoSans-SemiBold.ttf in Resources */,
 				BA3E7B922AE3084000CE3C3E /* NunitoSans-ExtraBold.ttf in Resources */,
 				BA71B52B2AE13D3D00554EC4 /* NunitoSans-Bold.ttf in Resources */,
 			);
