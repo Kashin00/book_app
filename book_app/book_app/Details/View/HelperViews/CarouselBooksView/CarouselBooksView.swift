@@ -132,7 +132,9 @@ private extension CarouselBooksView {
     NSLayoutConstraint.activate([
       titlesStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
       titlesStackView.topAnchor.constraint(equalTo: carouselCollectionView.bottomAnchor, constant: 16),
-      titlesStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18)
+      titlesStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -18),
+      titlesStackView.leadingAnchor.constraint(lessThanOrEqualTo: leadingAnchor, constant: 16),
+      titleLabel.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -16)
     ])
   }
 }
