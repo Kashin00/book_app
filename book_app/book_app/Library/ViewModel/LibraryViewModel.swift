@@ -53,6 +53,7 @@ class LibraryViewModel: LibraryViewModelInput, BannerRepresentableViewController
         self?.library = data
         self?.bindReloadData?()
       case .failure(let error):
+        // handle error here
         break
       }
     })

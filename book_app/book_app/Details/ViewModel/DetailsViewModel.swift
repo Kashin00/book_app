@@ -51,6 +51,7 @@ class DetailsViewModel: DetailsViewModelInput {
         
         self?.bindReloadData?()
       case .failure(let error):
+        // handle error here
         break
       }
     })
