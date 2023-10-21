@@ -51,6 +51,8 @@
 		BA71B5362AE1481100554EC4 /* LibraryViewModelInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5352AE1481100554EC4 /* LibraryViewModelInput.swift */; };
 		BA71B5382AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B5372AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift */; };
 		BA71B53D2AE177F800554EC4 /* FirebaseRemoteConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA71B53C2AE177F800554EC4 /* FirebaseRemoteConfigManager.swift */; };
+		BAA15D1C2AE47F19008D615D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BAA15D1E2AE47F19008D615D /* Localizable.strings */; };
+		BAA15D212AE48166008D615D /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA15D202AE48166008D615D /* String+Extensions.swift */; };
 		BABBDA932AE1836800433EDD /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDA922AE1836800433EDD /* Library.swift */; };
 		BABBDA952AE1837200433EDD /* BookGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDA942AE1837200433EDD /* BookGenre.swift */; };
 		BABBDA972AE1837800433EDD /* BookRemoteConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BABBDA962AE1837800433EDD /* BookRemoteConfiguration.swift */; };
@@ -124,6 +126,8 @@
 		BA71B5352AE1481100554EC4 /* LibraryViewModelInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryViewModelInput.swift; sourceTree = "<group>"; };
 		BA71B5372AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryScreenCoordinatorInput.swift; sourceTree = "<group>"; };
 		BA71B53C2AE177F800554EC4 /* FirebaseRemoteConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteConfigManager.swift; sourceTree = "<group>"; };
+		BAA15D1D2AE47F19008D615D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		BAA15D202AE48166008D615D /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		BABBDA922AE1836800433EDD /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 		BABBDA942AE1837200433EDD /* BookGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGenre.swift; sourceTree = "<group>"; };
 		BABBDA962AE1837800433EDD /* BookRemoteConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookRemoteConfiguration.swift; sourceTree = "<group>"; };
@@ -372,6 +376,7 @@
 				BA71B4F12AE1024C00554EC4 /* LaunchScreen.storyboard */,
 				BA71B51A2AE12D5400554EC4 /* ImageStorage.swift */,
 				BA71B5202AE1350A00554EC4 /* ColorStorage.swift */,
+				BAA15D1E2AE47F19008D615D /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				BA3E7B662AE2AF4A00CE3C3E /* UICollectionViewCell+Extensions.swift */,
 				BA3E7B932AE317F400CE3C3E /* UIApplication+Extensions.swift */,
 				BA0422122AE46774000242F5 /* UIImageView+Extensions.swift */,
+				BAA15D202AE48166008D615D /* String+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -596,7 +602,6 @@
 			knownRegions = (
 				en,
 				Base,
-				uk,
 			);
 			mainGroup = BA71B4DA2AE1024B00554EC4;
 			productRefGroup = BA71B4E42AE1024B00554EC4 /* Products */;
@@ -616,6 +621,7 @@
 				BA71B4F32AE1024C00554EC4 /* LaunchScreen.storyboard in Resources */,
 				BA71B4FB2AE102E900554EC4 /* GoogleService-Info.plist in Resources */,
 				BA71B4F02AE1024C00554EC4 /* Assets.xcassets in Resources */,
+				BAA15D1C2AE47F19008D615D /* Localizable.strings in Resources */,
 				BADA64032AE3F38A007DFADA /* NunitoSans-SemiBold.ttf in Resources */,
 				BA3E7B922AE3084000CE3C3E /* NunitoSans-ExtraBold.ttf in Resources */,
 				BA71B52B2AE13D3D00554EC4 /* NunitoSans-Bold.ttf in Resources */,
@@ -727,6 +733,7 @@
 				BA71B5212AE1350A00554EC4 /* ColorStorage.swift in Sources */,
 				BABBDA9E2AE183EF00433EDD /* RemoteConfigDataMapper.swift in Sources */,
 				BA3E7B772AE2BEE600CE3C3E /* LibraryDataConverter.swift in Sources */,
+				BAA15D212AE48166008D615D /* String+Extensions.swift in Sources */,
 				BA71B5382AE1482300554EC4 /* LibraryScreenCoordinatorInput.swift in Sources */,
 				BA71B4E92AE1024B00554EC4 /* SceneDelegate.swift in Sources */,
 				BAF5A1C32AE285EF0096FEA3 /* DetailsScreenCoordinatorInput.swift in Sources */,
@@ -762,6 +769,14 @@
 				BA71B4F22AE1024C00554EC4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		BAA15D1E2AE47F19008D615D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAA15D1D2AE47F19008D615D /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -15,7 +15,7 @@ class LibraryHeaderView: UICollectionReusableView {
     $0.translatesAutoresizingMaskIntoConstraints = false
     $0.textColor = UIColor(red: 0.817, green: 0, blue: 0.433, alpha: 1)
     $0.font = UIFont(name: "NunitoSans-Bold", size: 20)
-    $0.text = "Library"
+    $0.text = "library".localized
     return $0
   }(UILabel())
   

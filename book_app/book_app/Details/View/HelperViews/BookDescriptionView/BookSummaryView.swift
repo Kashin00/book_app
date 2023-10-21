@@ -23,7 +23,7 @@ class BookSummaryView: UIView {
   
   private lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Summary"
+    $0.text = "summary".localized
     $0.textColor = .black
     $0.numberOfLines = 1
     $0.font = UIFont(name: "NunitoSans-Bold", size: 20)

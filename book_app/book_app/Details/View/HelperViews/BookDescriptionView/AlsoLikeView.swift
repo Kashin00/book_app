@@ -22,7 +22,7 @@ class AlsoLikeView: UIView {
   
   private lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "You will also like"
+    $0.text = "you_will_also_like".localized
     $0.textColor = .black
     $0.numberOfLines = 1
     $0.font = UIFont(name: "NunitoSans-Bold", size: 20)

@@ -11,7 +11,7 @@ final class SplashScreenLoadingView: UIView {
   
   private lazy var titleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Book App"
+    $0.text = "book_app".localized
     $0.textAlignment = .center
     $0.textColor = ColorStorage.mainPink
     $0.font = UIFont(name: "Georgia-BoldItalic", size: 52)
@@ -20,7 +20,7 @@ final class SplashScreenLoadingView: UIView {
   
   private lazy var subtitleLabel: UILabel = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.text = "Welcome to Book App"
+    $0.text = "welcome_to_app".localized
     $0.textAlignment = .center
     $0.textColor = .white.withAlphaComponent(0.8)
     $0.font = UIFont(name: "NunitoSans-Bold", size: 24)

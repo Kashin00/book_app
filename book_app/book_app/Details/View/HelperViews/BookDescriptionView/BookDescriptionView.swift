@@ -15,10 +15,10 @@ class BookDescriptionView: UIView {
   
   weak var delegate: BookDescriptionViewDelegate?
 
-  private lazy var readersView = BookCharacteristicView(with: "Readers")
-  private lazy var likesView = BookCharacteristicView(with: "Likes")
-  private lazy var quotesView = BookCharacteristicView(with: "Quotes")
-  private lazy var genreView = BookCharacteristicView(with: "Genre")
+  private lazy var readersView = BookCharacteristicView(with: "readers".localized)
+  private lazy var likesView = BookCharacteristicView(with: "likes".localized)
+  private lazy var quotesView = BookCharacteristicView(with: "quotes".localized)
+  private lazy var genreView = BookCharacteristicView(with: "genre".localized)
   
   private lazy var bookCharacteristicStackView: UIStackView = {
     $0.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +39,7 @@ class BookDescriptionView: UIView {
   
   private lazy var readNowButton: UIButton = {
     $0.translatesAutoresizingMaskIntoConstraints = false
-    $0.setTitle("Read Now", for: .normal)
+    $0.setTitle("read_now".localized, for: .normal)
     $0.setTitleColor(.white, for: .normal)
     $0.titleLabel?.font = UIFont(name: "NunitoSans-ExtraBold", size: 16)
     $0.backgroundColor = ColorStorage.mainPink

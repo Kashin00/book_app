@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  book_app
+
+  Created by Матвей Кашин on 22.10.2023.
+  
+*/
+
+"library" = "Library";
+"summary" = "Summary";
+"you_will_also_like" = "You will also like";
+"book_app" = "Book App";
+"welcome_to_app" = "Welcome to Book App";
+"readers" = "Readers";
+"likes" = "Likes";
+"quotes" = "Quotes";
+"genre" = "Genre";
+"read_now" = "Read Now";
