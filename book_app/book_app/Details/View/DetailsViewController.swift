@@ -109,6 +109,11 @@ extension DetailsViewController: CarouselBooksViewDelegate {
   func backButtonDidTap() {
     viewModel?.backButtonDidTap()
   }
+  
+  func updateScreenFor(index: Int) {
+    guard let book = viewModel?.books?[index] else { return }
+    bookDescriptionView.configure(with: book)
+  }
 }
 
 extension DetailsViewController: BookDescriptionViewDelegate {

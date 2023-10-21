@@ -10,6 +10,7 @@ import UIKit
 protocol CarouselBooksViewDelegate: AnyObject {
   func getImage(for url: String, competion: @escaping (UIImage) -> ())
   func backButtonDidTap()
+  func updateScreenFor(index: Int)
 }
 
 class CarouselBooksView: UIView {
@@ -65,7 +66,7 @@ class CarouselBooksView: UIView {
   
   private var currentSelectedIndex = 0 {
     didSet {
-      updateTitles(with: currentSelectedIndex)
+      updateScreenFor(index: currentSelectedIndex)
     }
   }
   
@@ -93,6 +94,11 @@ class CarouselBooksView: UIView {
   
   @objc private func backButtonDidTap() {
     delegate?.backButtonDidTap()
+  }
+  
+  private func updateScreenFor(index: Int) {
+    updateTitles(with: index)
+    delegate?.updateScreenFor(index: index)
   }
 }
 
