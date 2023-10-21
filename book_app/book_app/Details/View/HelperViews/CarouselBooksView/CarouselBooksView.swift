@@ -151,12 +151,12 @@ extension CarouselBooksView: UICollectionViewDelegate, UICollectionViewDataSourc
     
     cell.configure(with: books[indexPath.item], and: self)
     
-    
-    //    if currentSelectedIndex == indexPath.row {
-    //      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
-    //                            scaleX: carouselCollectionViewLayout.scaleX,
-    //                            scaleY: carouselCollectionViewLayout.scaleY)
-    //    }
+    // Works only on first open
+    if currentSelectedIndex == indexPath.row {
+      cell.transformToLarge(with: carouselCollectionViewLayout.duration,
+                            scaleX: carouselCollectionViewLayout.scaleX,
+                            scaleY: carouselCollectionViewLayout.scaleY)
+    }
     
     return cell
   }
